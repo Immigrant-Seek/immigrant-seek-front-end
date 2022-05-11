@@ -1,24 +1,25 @@
-import logo from './logo.svg';
+import Navbar from 'react-bootstrap/Navbar';
 import './App.css';
+import React, { useContext} from 'react';
+import LawyerPage from './components/LawyerPage';
+import Context from './context/Context';
 
 function App() {
+  let { lawyers } = useContext(Context)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div className='App'>
+      <Navbar className="nav-bar">
+        <div className="nav-bar-content-box">
+          <h1>DreamBridge</h1>
+          <p><a href="#">Home</a></p>
+          <p><a href="#">Connect with a Lawyer</a></p>
+          <p><a href="#">User profile</a></p>
+          <button type="button">Inbox</button>
+        </div>
+      </Navbar>
+      <LawyerPage lawyers={lawyers}/>
+      </div>
   );
 }
 
