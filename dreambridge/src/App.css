@@ -4,21 +4,17 @@
 
 .nav-bar-content-box {
   display:flex;
-  justify-content:space-evenly;
-}
-
-button {
-  margin-top: 1%;
-  height: 5%;
+  justify-content:space-around;
 }
 
 .nav-bar {
   border-bottom: 5px solid!important;
-}
+} 
 
 .card {
   margin: 5%;
   cursor: pointer;
+  border: none!important;
 }
 
 .cards {
