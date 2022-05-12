@@ -4,12 +4,7 @@
 
 .nav-bar-content-box {
   display:flex;
-  justify-content:space-evenly;
-}
-
-button {
-  margin-top: 1%;
-  height: 5%;
+  justify-content: space-around;
 }
 
 .nav-bar {
