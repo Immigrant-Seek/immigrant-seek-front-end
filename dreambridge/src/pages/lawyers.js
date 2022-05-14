@@ -1,6 +1,6 @@
 import LawyerPage from '../components/LawyerPage';
 import Context from '../context/Context';
-import Nav from '../components/Nav';
+import NavigationBar from '../components/Nav'
 import React, { useContext} from 'react';
 
 function Lawyers(){
@@ -8,7 +8,7 @@ function Lawyers(){
 
   return (
     <div className='App'>
-      <Nav/>
+      <NavigationBar/>
       <LawyerPage lawyers={lawyers}/>
       </div>
   );
