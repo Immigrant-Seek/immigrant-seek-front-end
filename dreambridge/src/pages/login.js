@@ -20,8 +20,9 @@ function Login(){
                 Submit
             </Button>
         </Form>
+        <span>Don't have an account yet? Click <Link to="/signup">here</Link> to sign up </span>
         {/* This is a temp link */}
-        <Link to="/Connect-with-a-lawyer">Click to go to main page</Link>
+        {/* <Link to="/Connect-with-a-lawyer">Click to go to main page</Link> */}
     </div>
     )
 }
