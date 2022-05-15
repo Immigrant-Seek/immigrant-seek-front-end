@@ -1,10 +1,12 @@
 import { Button, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import Context from '../context/Context';
 import React from 'react';
 
 function SignUp(){
     // state to keep track of the user that signs up, initailzied to object with values of empty strings
     const [userInfo, setUserInfo] = React.useState({})
+    const context = React.useContext(Context);
 
     // when a user submits the form, we want to grab all the data from the form and update the state of the userInfo
     const handleSubmit = (event) => {
@@ -25,26 +27,27 @@ function SignUp(){
     }
     
     const postNewUser = async (userData) => {
-        const response = await fetch("http://localhost:3030/newUser", {
+        const response = await fetch("http://localhost:3030/signup", {
             method : "POST",
             headers: {
                 "Content-Type" : "application/json",
             },
             body: JSON.stringify(userData)
         })
-        return response;
+        const data = await response.json()
+        return data;
     }
 
     React.useEffect(() => {
-        fetch("http://localhost:3030/newUser", {
-            method : "POST",
-            headers: {
-                "Content-Type" : "application/json",
-            },
-            body: JSON.stringify({...userInfo})
-        }).then(response => response.json())
-        .then(data => console.log(data))
+        postNewUser(userInfo).then(newUserData => {
+            console.log(newUserData);
+            context.updateToken(newUserData.token)
+        })
     }, [userInfo])
+
+    React.useEffect(() => {
+        console.log(context.token);
+    },[context.token])
 
     return (
         <div>
@@ -70,6 +73,7 @@ function SignUp(){
                 Submit
             </Button>
         </Form>
+        <span>Already have an account? Click <Link to="/">here</Link> to sign in </span>
         {/* This is a temp link */}
         <Link to="/Connect-with-a-lawyer">Click to go to main page</Link>
     </div>
