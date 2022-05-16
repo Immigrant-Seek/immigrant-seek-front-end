@@ -1,5 +1,5 @@
 import { Navbar, Container, Nav } from 'react-bootstrap'
-
+import { Link } from "react-router-dom";
 function NavigationBar() {
     return (
       <>
@@ -13,7 +13,7 @@ function NavigationBar() {
       <Nav.Link href="/Connect-with-a-lawyer">Connect with a lawyer</Nav.Link>
     </Nav>
     <Nav>
-      <Nav.Link href="/inbox">Inbox</Nav.Link>
+      <Nav.Link><Link to={`/inbox`}>Inbox</Link></Nav.Link>
       <Nav.Link href="/userprofile">
         UserProfile
       </Nav.Link>
