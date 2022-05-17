@@ -1,14 +1,19 @@
 import '../InboxSidebar.css'
+import React from 'react';
 import DonutLargeIcon from '@material-ui/icons/DonutLarge'
 import {Avatar, IconButton} from '@material-ui/core';
 import ChatIcon from '@material-ui/icons/Chat';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-import ConversationCard from './ConversationCard';
+import ConversationsList from './ConversationsList';
+import Context from '../context/Context';
 
-function Sidebar () {
+function Sidebar (props) {
+    const context = React.useContext(Context);
+    console.log(context);
+    const {updateSelectedConvo} = props;
     return (
         <div className="sidebar">
-            <h1>I am a sidebar</h1>
+            <h1>{context.verifiedUser.userInfo.first_name}'s Inbox</h1>
             <div className='sidebarHeader'>
                 <Avatar/>
                 <div className='sidebarHeaderRight'>
@@ -23,11 +28,7 @@ function Sidebar () {
                     </IconButton>
                 </div>
             </div>
-            <div className='conversationsList'>
-                <ConversationCard />
-                <ConversationCard />
-                <ConversationCard />
-            </div>
+            <ConversationsList updateSelectedConvo = {updateSelectedConvo}className='conversationsList'/>
         </div>
     )
 }
