@@ -2,14 +2,20 @@ import Sidebar from './InboxSidebar';
 import Chat from './Chat';
 import '../Inbox.css';
 import Nav from './Nav';
+import React from 'react';
+// use a modal from react strap to get popup for send a message button
 function Inbox() {
+    const [selectedConvoId,updateSelectedConvo] = React.useState(null);
+    React.useEffect(() => {
+        console.log(selectedConvoId);
+    })
     return (
         <>
         <Nav />
         <div className = "Inbox">
             <div className = 'InboxBody'>
-                <Sidebar />
-                <Chat />
+                <Sidebar updateSelectedConvo = {updateSelectedConvo}/>
+                {selectedConvoId && <Chat selectedConvoId = {selectedConvoId}/>}
             </div>
         </div>
     </>
