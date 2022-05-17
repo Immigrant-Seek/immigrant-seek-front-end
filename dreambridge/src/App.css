@@ -29,11 +29,6 @@ body {
   margin-top: 5%;
 } 
 
-/* .flex-container {
-  display: flex;
-  justify-content: space-evenly;
-} */ 
-
 .padding {
   padding: 3%;
 }
@@ -56,6 +51,16 @@ body {
 .content {
   margin: 2%;
   padding: 3%;
+}
+
+.filter-item:hover {
+  color:green;
+  font-weight:bold;
+}
+
+.calendly {
+  color: black;
+  text-decoration-line: none;
 }
 
 @media only screen and (max-width: 450px) {

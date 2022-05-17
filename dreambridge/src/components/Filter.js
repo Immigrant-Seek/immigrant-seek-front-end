@@ -1,6 +1,12 @@
 import { Nav, Dropdown, Container} from "react-bootstrap";
+import Context from '../context/Context';
+import { useContext } from 'react';
+import FilterListItem from "./FilterFirmItem";
+import FilterStateItem from "./FilterStateItem";
 
 function Filter(){
+    let context = useContext(Context)
+
     return (
         <>
         <Container className="row-search-and-filter">
@@ -20,7 +26,9 @@ function Filter(){
                         State
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
-                        <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                        <Dropdown.Item href="#/action-1">{context.listOfStates.map((state) => {
+                            return <FilterStateItem state={state}/>
+                        })}</Dropdown.Item>
                     </Dropdown.Menu>
                 </Dropdown>
                 <Dropdown>
@@ -28,7 +36,9 @@ function Filter(){
                         Firm
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
-                        <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                        <Dropdown.Item href="#/action-2">{context.listOfFirms.map((firm) => {
+                            return <FilterListItem firm={firm}/>
+                        })}</Dropdown.Item>
                     </Dropdown.Menu>
                 </Dropdown>
             </Dropdown.Menu>
