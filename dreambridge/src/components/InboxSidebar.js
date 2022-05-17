@@ -13,9 +13,9 @@ function Sidebar (props) {
     const {updateSelectedConvo} = props;
     return (
         <div className="sidebar">
-            <h1>{context.verifiedUser.userInfo.first_name}'s Inbox</h1>
             <div className='sidebarHeader'>
                 <Avatar/>
+                <h1>{context.verifiedUser.userInfo.first_name}'s Inbox</h1>
                 <div className='sidebarHeaderRight'>
                     <IconButton>
                         <DonutLargeIcon />
