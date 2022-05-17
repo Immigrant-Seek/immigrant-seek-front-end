@@ -22,7 +22,7 @@ function ClientProfile(){
                     alt="..."
                   />
                 </div>
-                <div className="infos">
+                <div className="infos" role="form">
                   <h2>Josh Amaya</h2>
                   <div className="phone-number">(347)457-3680</div>
                   <div className="email">joshamaya@gmail.com</div>
@@ -30,7 +30,7 @@ function ClientProfile(){
               </div>
               <div className="col-xl-4 col-md-4 d-flex justify-content-lg-end justify-content-md-end justify-content-center">
                 <div className="edit-profile">
-                  <a className="btn btn-shadow" href="#">
+                  <a className="btn btn-shadow" href="EditProfile">
                     <i className="la la-user-plus" />
                     Edit Profile
                   </a>
@@ -57,12 +57,7 @@ function ClientProfile(){
                           transform: "translate3d(0px, 35px, 0px)"
                         }}
                       >
-                        <a href="#" className="dropdown-item">
-                          Report
-                        </a>
-                        <a href="#" className="dropdown-item">
-                          Block
-                        </a>
+                      
                       </div>
                     </div>
                   </div>

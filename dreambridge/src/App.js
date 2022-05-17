@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Lawyers from './pages/lawyers';
 import Login from './pages/login';
 import Clients from './pages/userprofile';
+import EditProfile from './components/EditProfile';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route exact path='/' element={<Login />}/>
         <Route exact path='/Connect-with-a-lawyer' element={<Lawyers />}/>
         <Route exact path='/userProfile' element={<Clients />}/>
+        <Route exact path='/EditProfile' element={<EditProfile />}/>
       </Routes>
     </Router>
   )
