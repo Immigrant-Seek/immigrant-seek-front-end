@@ -28,6 +28,7 @@
 .chatBody {
     padding: 30px;
     overflow-y: scroll;
+    height: 100vh;
 }
 
 .chatMessage {
@@ -50,4 +51,29 @@
 .messageTimestamp {
     margin-left: 10px;
     font-size: xx-small;
+}
+
+.sentMessage {
+    margin-left: auto;
+    background-color: #ACDEE1;
+}
+
+.chatFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 62px;
+    border-top: 1px solid lightgrey;
+}
+
+.chatFooter>form {
+    flex: 1;
+    display: flex;
+}
+
+.chatFooter>form>input {
+    flex: 1;
+    border-radius: 30px;
+    padding: 10px;
+    border: none;
 }
