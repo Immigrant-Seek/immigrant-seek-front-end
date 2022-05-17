@@ -5,7 +5,6 @@ import SearchOutlined from '@material-ui/icons/SearchOutlined';
 function Chat () {
     return (
         <div className="chat">
-            <h1>I am the chat</h1>
             <div className='chatHeader'>
                 <Avatar />
                 <div className='chatHeaderInfo'>
@@ -26,7 +25,18 @@ function Chat () {
                     MESSAGE CONTENT
                     <span className='messageTimestamp'>{new Date().toUTCString()}</span>
                 </p>
+                <p className='chatMessage sentMessage'>
+                    <span className='senderName'>Other Person</span>
+                    MESSAGE CONTENT
+                    <span className='messageTimestamp'>{new Date().toUTCString()}</span>
+                </p>
             </div> 
+            <div className='chatFooter'>
+                <form>
+                    <input placeholder='Type a message' type="text"/>
+                    <button type='submit'>Send a message</button>
+                </form>
+            </div>
         </div>
     );
 }
