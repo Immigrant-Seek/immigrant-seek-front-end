@@ -7,7 +7,7 @@ function ContextProvider({children}){
     const [verifiedUser, updateVerifiedUser] = useState({});
     const [ listOfStates, updateStatesList ] = useState([]);
     const [ listOfFirms, updateFirmsList ] = useState([]);
-
+    const [isLoggedIn, updateLoggedIn] = useState(false)
     const getAllLawyers = async() => {
         const res =  await fetch("http://localhost:3030/lawyers")
         const data = await res.json();
@@ -42,7 +42,7 @@ function ContextProvider({children}){
         getAllFirms().then(firms => {
             updateFirmsList(firms)
         })
-    })
+    },[])
 
     const state = {
         getAllLawyers, 
@@ -57,7 +57,9 @@ function ContextProvider({children}){
         token,
         updateToken,
         verifiedUser,
-        updateVerifiedUser
+        updateVerifiedUser,
+        isLoggedIn,
+        updateLoggedIn
     }
 
     return (
