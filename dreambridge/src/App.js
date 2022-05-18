@@ -6,6 +6,7 @@ import Login from './pages/login';
 import LawyerProfile from './components/LawyerProfile';
 import SignUp from './components/SignUp';
 import Inbox from './components/Inbox';
+import UserProfile from './pages/userprofile'
 function App() {
   return (
     <Router>
@@ -15,7 +16,7 @@ function App() {
         <Route exact path='/inbox' element={<Inbox/>}/>
         <Route exact path='/Connect-with-a-lawyer' element={<Lawyers />}/>
         <Route path='Connect-with-a-lawyer/lawyers/:id' element={<LawyerProfile />}/>
-        {/* <Route exact path='/userprofile' element={UserProfile />}/> */}
+        <Route exact path='/userprofile' element={<UserProfile />}/>
       </Routes>
     </Router>
   )
