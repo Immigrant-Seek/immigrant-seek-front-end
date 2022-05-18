@@ -1,10 +1,9 @@
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import React, { useState, useEffect, useContext } from 'react';
 import Context from '../context/Context';
 import NavigationBar from '../components/Nav'
-import { Container, Form, Button } from 'react-bootstrap';
-
-// import Reviews from './Reviews';
+import { Container, Form } from 'react-bootstrap';
+import ReviewCard from '../components/ReviewCard'
 
 function LawyerProfile(){
     const params = useParams();
@@ -12,7 +11,6 @@ function LawyerProfile(){
     const context = useContext(Context)
     const [ lawyer, updateCurrentLawyer ] = useState([])
     const [ currentReviews, setCurrentReviews ] = useState([])
-    // const [ reviews, updateReviews ] = useState([])
     const [ postInfo, setPostInfo ] = useState({})
 
     // Fetch to get lawyer's reviews
@@ -30,12 +28,6 @@ function LawyerProfile(){
             updateCurrentLawyer(lawyersList.find(lawyers => lawyers.user_id == params.id))
         })
     }, [context.lawyersList])
-
-    // useEffect(() => {
-    //     context.getAllReviews().then(reviewsList => {
-    //         updateReviews(reviewsList.find(reviews => reviews.lawyer_id == params.id))
-    //     })
-    // }, [context.reviewsList])
 
     // Submit Review
     const handleSubmit = (event) => {
@@ -98,7 +90,7 @@ function LawyerProfile(){
         <h3 className='padding'>Reviews:</h3>
         <div>
             {currentReviews.map((review) => {
-                return <p key={review.review_id}>{review.review_body}</p>
+                return <ReviewCard key={review.review_id} review={review}/>
             })}
         </div>
         <div>

@@ -1,24 +1,24 @@
-// import { useEffect, useState } from "react";    
+import { useEffect, useState } from "react";    
 
-// function ReviewCard(props){
-//     const { reviews, lawyer } = props;
+function ReviewCard(props){
+    const { review } = props;
+    const [ loadedReview, setLoadedReview ] = useState([])
 
-//     console.log(lawyer);
-//     cosole.log(reviews);
-//     const [ currentReview, setCurrentReview ] = useState([])
+ 
+    useEffect(() => {
+        fetch(`http://localhost:3030/review/${review.review_id}/user`)
+        .then(res => res.json())
+        .then((data) => {
+            setLoadedReview(data)
+        })
+    }, [])
 
-//     useEffect(() => {
-//         fetch(`http://localhost:3030/lawyers/${lawyer.user_id}/reviews`)
-//         .then(res => res.json())
-//         .then((data) => {
-//             setCurrentReview(data)
-//         })
-//     }, [])
+    return (
+        <>
+            <p key={review.review_id}>{review.review_body}</p> 
+            <p className="card-text"><small className="text-muted">Reviewed by: {review.first_name}</small></p>
+        </>
+    )
+}
 
-
-//     return (
-//         <div>
-//             <p review_body></p>
-//         </div>
-//     )
-// }
+export default ReviewCard
