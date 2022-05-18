@@ -36,8 +36,13 @@ function Login(){
 
     React.useEffect(() => {
         loginAttempt(userInfo).then(data => {
+            console.log(data);
             context.updateToken(data.token)
             context.updateVerifiedUser(data)
+            console.log(context.verifiedUser.userInfo)
+            if(data.userInfo !== undefined) {
+                context.updateLoggedIn(true);
+            }
         })
     },[userInfo])
 
