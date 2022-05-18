@@ -2,19 +2,21 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import React, { useState, useEffect, useContext } from 'react';
 import Context from '../context/Context';
 import NavigationBar from '../components/Nav'
-import { Container, Form, Button } from 'react-bootstrap';
+import VerticallyCenteredModal from './VerticallyCenteredModal';
+import { Container, Form, Button} from 'react-bootstrap';
 
 // import Reviews from './Reviews';
 
 function LawyerProfile(){
+    const [modalShow, setModalShow] = useState(false);
     const params = useParams();
     let navigate = useNavigate();
     const context = useContext(Context)
-    const [ lawyer, updateCurrentLawyer ] = useState([])
+    const [ lawyer, updateCurrentLawyer ] = useState({})
     const [ currentReviews, setCurrentReviews ] = useState([])
-    // const [ reviews, updateReviews ] = useState([])
-    const [ postInfo, setPostInfo ] = useState({})
+    const [ postInfo, setPostInfo ] = useState(null)
 
+    
     // Fetch to get lawyer's reviews
     useEffect(() => {
         fetch(`http://localhost:3030/lawyers/${params.id}/reviews`)
@@ -22,20 +24,16 @@ function LawyerProfile(){
         .then((data) => {
             setCurrentReviews(data.reviews)
         })
-    }, [currentReviews])
+    }, [postInfo])
 
-    // Fetch to find the selected lawyer
-    useEffect(() => {
-        context.getAllLawyers().then(lawyersList => {
-            updateCurrentLawyer(lawyersList.find(lawyers => lawyers.user_id == params.id))
+    // get the current lawyers information
+    useEffect(()=> {
+        fetch(`http://localhost:3030/lawyers/${params.id}`)
+        .then(response => response.json())
+        .then(data => {
+            updateCurrentLawyer(data.lawyerInfo)
         })
-    }, [context.lawyersList])
-
-    // useEffect(() => {
-    //     context.getAllReviews().then(reviewsList => {
-    //         updateReviews(reviewsList.find(reviews => reviews.lawyer_id == params.id))
-    //     })
-    // }, [context.reviewsList])
+    },[])
 
     // Submit Review
     const handleSubmit = (event) => {
@@ -43,12 +41,12 @@ function LawyerProfile(){
         const reviewBody = event.target.reviewBody.value
         const lawyerReviewed = params.id
         const user = context.verifiedUser.userInfo.user_id
-        console.log(reviewBody, lawyerReviewed, user)
         setPostInfo({
             lawyer_id: lawyerReviewed,
             review_body: reviewBody,
             client_id: user
         })
+        event.target.reset()
     }
 
     // Post Review Fetch
@@ -66,10 +64,9 @@ function LawyerProfile(){
 
     useEffect(() => {
         postReview(postInfo).then(newPostData => {
-            console.log(newPostData)
+            setCurrentReviews([...currentReviews, newPostData.newReview])
         })
     }, [postInfo])
-
     return (
         <>
         <NavigationBar/>
@@ -90,22 +87,26 @@ function LawyerProfile(){
         <h3 className="card-title">Biography:</h3>
         <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
         <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
-        <div className="button-group padding">
+        {context.isLoggedIn &&<div className="button-group padding">
             {/* MAKE CALENDLY LINK DEPEND ON LAWYER NAME */}
             <button type="button"><a href="https://calendly.com/dominic-cullen" className='calendly'>Schedule an appointment</a></button>
-            <button type="button">Send a Message</button>
-        </div>
+            <Button variant="primary" onClick={() => setModalShow(true)}>
+                Send A Message
+            </Button>
+            <VerticallyCenteredModal show={modalShow} onHide={() => setModalShow(false)} />
+        </div>}
         <h3 className='padding'>Reviews:</h3>
         <div>
             {currentReviews.map((review) => {
                 return <p key={review.review_id}>{review.review_body}</p>
             })}
         </div>
+        {context.isLoggedIn &&
         <div>
             <Form onSubmit = {handleSubmit}>
                 <input name ="reviewBody" type="text" placeholder="Write a Review"/><button type="submit">Submit</button>
             </Form>
-        </div>
+        </div>}
 
       </div>
     </div>
