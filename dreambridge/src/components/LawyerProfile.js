@@ -1,11 +1,9 @@
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import React, { useState, useEffect, useContext } from 'react';
 import Context from '../context/Context';
 import NavigationBar from '../components/Nav'
 import VerticallyCenteredModal from './VerticallyCenteredModal';
 import { Container, Form, Button} from 'react-bootstrap';
-
-// import Reviews from './Reviews';
 
 function LawyerProfile(){
     const [modalShow, setModalShow] = useState(false);
@@ -15,16 +13,18 @@ function LawyerProfile(){
     const [ lawyer, updateCurrentLawyer ] = useState({})
     const [ currentReviews, setCurrentReviews ] = useState([])
     const [ postInfo, setPostInfo ] = useState(null)
+    const [ count, setCount ] = useState(0)
+    const [ reviewer, setReviewer ] = useState("")
 
-    
     // Fetch to get lawyer's reviews
     useEffect(() => {
         fetch(`http://localhost:3030/lawyers/${params.id}/reviews`)
         .then(res => res.json())
         .then((data) => {
             setCurrentReviews(data.reviews)
+            setReviewer(data.reviews.first_name)
         })
-    }, [postInfo])
+    }, [postInfo, count])
 
     // get the current lawyers information
     useEffect(()=> {
@@ -65,8 +65,24 @@ function LawyerProfile(){
     useEffect(() => {
         postReview(postInfo).then(newPostData => {
             setCurrentReviews([...currentReviews, newPostData.newReview])
+            console.log(newPostData.newReview)
         })
     }, [postInfo])
+
+    const handleDelete = (event) => {
+        console.log("delete btn clicked")
+        const reviewId = event.target.id
+        const deleteurl = `http://localhost:3030/reviews/${reviewId}`
+        const options = {
+            method: "DELETE"
+        }
+        fetch(deleteurl, options)
+        .then(res => {
+            console.log(res)
+            setCount(count + 1)
+        })
+    }
+
     return (
         <>
         <NavigationBar/>
@@ -88,7 +104,7 @@ function LawyerProfile(){
         <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
         <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
         {context.isLoggedIn &&<div className="button-group padding">
-            {/* MAKE CALENDLY LINK DEPEND ON LAWYER NAME */}
+            {/* MAKE CALENDLY LINK FOR OTHER LAWYERS */}
             <button type="button"><a href="https://calendly.com/dominic-cullen" className='calendly'>Schedule an appointment</a></button>
             <Button variant="primary" onClick={() => setModalShow(true)}>
                 Send A Message
@@ -98,7 +114,20 @@ function LawyerProfile(){
         <h3 className='padding'>Reviews:</h3>
         <div>
             {currentReviews.map((review) => {
-                return <p key={review.review_id}>{review.review_body}</p>
+                return (
+                    <>
+                        <>
+                        <p key={review.review_id}>{review.review_body}</p>
+                        <p className="card-text"><small className="text-muted">Reviewed by: {review.first_name}</small></p>
+                        </>
+                        {context.isLoggedIn && (context.verifiedUser.userInfo.user_id == review.client_id) &&
+                        <>
+                        <button>Edit</button>
+                        <button onClick={handleDelete} key={review.review_id} id={review.review_id}>Delete</button>
+                        </>
+                        }
+                    </>
+                )
             })}
         </div>
         {context.isLoggedIn &&
