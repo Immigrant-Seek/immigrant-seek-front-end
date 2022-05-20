@@ -11,7 +11,17 @@ function Chat (props) {
     const {selectedConvoId} = props // id of the conversations
     const [messagesList, updateMessagesList] = React.useState([])
     const [newChatMessage, updateNewChatMessage] = React.useState(null);
-
+    const [convoLawyerInfo, updateConvoLawyerInfo] = React.useState({});
+    const user = context.verifiedUser.userInfo.user_id
+    React.useEffect(() => {
+        fetch(`http://localhost:3030/clients/${user}/inbox`)
+        .then(response => response.json())
+        .then(data => {
+            const lawyerInfo = data.conversations.find(convo => convo.convo_id === selectedConvoId);
+            console.log(lawyerInfo);
+            updateConvoLawyerInfo(lawyerInfo);
+        })
+    },[selectedConvoId])
     React.useEffect(() => {
         fetch(`http://localhost:3030/conversations/${selectedConvoId}/all`)
         .then(response => response.json())
@@ -51,9 +61,9 @@ function Chat (props) {
     return (
         <div className="chat">
             <div className='chatHeader'>
-                <Avatar />
+                <Avatar src= {convoLawyerInfo.profile_pic_link} />
                 <div className='chatHeaderInfo'>
-                    <h3>Other Persons Name</h3>
+                    <h3>{convoLawyerInfo.first_name} {convoLawyerInfo.last_name}</h3>
                 </div>
                 <div className="chatHeaderRight">
                     <IconButton>
