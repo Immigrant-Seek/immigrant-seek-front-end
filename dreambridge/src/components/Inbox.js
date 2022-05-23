@@ -6,6 +6,7 @@ import React from 'react';
 // use a modal from react strap to get popup for send a message button
 function Inbox() {
     const [selectedConvoId,updateSelectedConvo] = React.useState(null);
+    const [messagesSentCount, updateMessagesSentCount] = React.useState(0);
     React.useEffect(() => {
         console.log(selectedConvoId);
     })
@@ -14,8 +15,8 @@ function Inbox() {
         <Nav />
         <div className = "Inbox">
             <div className = 'InboxBody'>
-                <Sidebar updateSelectedConvo = {updateSelectedConvo}/>
-                {selectedConvoId && <Chat selectedConvoId = {selectedConvoId}/>}
+                <Sidebar updateSelectedConvo = {updateSelectedConvo} messagesSentCount = {messagesSentCount}/>
+                {selectedConvoId && <Chat selectedConvoId = {selectedConvoId} messagesSentCount = {messagesSentCount} updateMessagesSentCount = {updateMessagesSentCount}/>}
             </div>
         </div>
     </>

@@ -8,7 +8,7 @@ import ChatMessage from './ChatMessage';
 
 function Chat (props) {
     const context = React.useContext(Context);
-    const {selectedConvoId} = props // id of the conversations
+    const {selectedConvoId, messagesSentCount, updateMessagesSentCount} = props // id of the conversations
     const [messagesList, updateMessagesList] = React.useState([])
     const [newChatMessage, updateNewChatMessage] = React.useState(null);
     const [convoLawyerInfo, updateConvoLawyerInfo] = React.useState({});
@@ -46,6 +46,7 @@ function Chat (props) {
         .then(data => {
             console.log(data);
             updateMessagesList([...messagesList, data.newMessage[0]])
+            updateMessagesSentCount(messagesSentCount+1)
         })
     }, [newChatMessage])
     React.useEffect(() => {
@@ -58,6 +59,7 @@ function Chat (props) {
         updateNewChatMessage(messageBody);
         event.target.messageInput.value = "";
     }
+    console.log(messagesSentCount)
     return (
         <div className="chat">
             <div className='chatHeader'>
