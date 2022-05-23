@@ -8,8 +8,8 @@ function ConversationCard (props) {
         fetch(`http://localhost:3030/conversations/${props.convoDetails.convo_id}/mostRecent`)
         .then(response => response.json())
         .then(data => updateMostReccent(data.mostRecentMessage[0].message_body))
-    },[])
-
+    },[props.messagesSentCount])
+    
     const handleClick = () => {
         props.updateSelectedConvo(props.convoDetails.convo_id);
     }
