@@ -2,7 +2,7 @@ import React from 'react';
 import ConversationCard from './ConversationCard';
 import Context from '../context/Context';
 function ConversationsList (props) {
-    const {updateSelectedConvo, messagesSentCount} = props
+    const {selectedConvoId, updateSelectedConvo, messagesSentCount} = props
     const context = React.useContext(Context);
     const user = context.verifiedUser.userInfo.user_id;
     const [listOfConvos, updateListOfConvos] = React.useState([]);
@@ -12,9 +12,15 @@ function ConversationsList (props) {
         .then(data => {
             updateListOfConvos(data.conversations);
         })
-    },[messagesSentCount])
+    },[selectedConvoId])
 
     return (
+    <>
+        {listOfConvos.length === 0 ? 
+        <div>
+            You don't have any conversations open
+        </div>
+        :
         <div>
             {
                 listOfConvos.map(conversationInfo => {
@@ -22,6 +28,8 @@ function ConversationsList (props) {
                 })
             }
         </div>
+        }
+    </>
     )
 }
 
