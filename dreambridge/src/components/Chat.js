@@ -1,10 +1,10 @@
 import '../Chat.css';
 import {Avatar, IconButton} from '@material-ui/core';
-import MoreVert from '@material-ui/icons/MoreVert';
-import SearchOutlined from '@material-ui/icons/SearchOutlined';
+import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import React from 'react';
 import Context from '../context/Context';
 import ChatMessage from './ChatMessage';
+import DeleteModal from './deleteModal';
 
 function Chat (props) {
     const context = React.useContext(Context);
@@ -12,6 +12,7 @@ function Chat (props) {
     const [messagesList, updateMessagesList] = React.useState([])
     const [newChatMessage, updateNewChatMessage] = React.useState(null);
     const [convoLawyerInfo, updateConvoLawyerInfo] = React.useState({});
+    const [modalShow, setModalShow] = React.useState(false);
     const user = context.verifiedUser.userInfo.user_id
     React.useEffect(() => {
         fetch(`http://localhost:3030/clients/${user}/inbox`)
@@ -68,12 +69,10 @@ function Chat (props) {
                     <h3>{convoLawyerInfo.first_name} {convoLawyerInfo.last_name}</h3>
                 </div>
                 <div className="chatHeaderRight">
-                    <IconButton>
-                        <SearchOutlined />
+                    <IconButton onClick={() => setModalShow(true)}>
+                        <DeleteForeverIcon />
                     </IconButton>
-                    <IconButton>
-                        <MoreVert />
-                    </IconButton>
+                    <DeleteModal selectedConvoId = {selectedConvoId} updateSelectedConvo= {props.updateSelectedConvo} show={modalShow} onHide={() => setModalShow(false)}/>
                 </div>
             </div>
             <div className='chatBody'>
