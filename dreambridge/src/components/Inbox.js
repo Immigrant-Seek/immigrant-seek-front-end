@@ -15,8 +15,8 @@ function Inbox() {
         <Nav />
         <div className = "Inbox">
             <div className = 'InboxBody'>
-                <Sidebar updateSelectedConvo = {updateSelectedConvo} messagesSentCount = {messagesSentCount}/>
-                {selectedConvoId && <Chat selectedConvoId = {selectedConvoId} messagesSentCount = {messagesSentCount} updateMessagesSentCount = {updateMessagesSentCount}/>}
+                <Sidebar selectedConvoId = {selectedConvoId} updateSelectedConvo = {updateSelectedConvo} messagesSentCount = {messagesSentCount}/>
+                {selectedConvoId && <Chat selectedConvoId = {selectedConvoId} updateSelectedConvo = {updateSelectedConvo} messagesSentCount = {messagesSentCount} updateMessagesSentCount = {updateMessagesSentCount}/>}
             </div>
         </div>
     </>
