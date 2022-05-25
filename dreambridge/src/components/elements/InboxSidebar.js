@@ -1,4 +1,4 @@
-import '/Users/jvredmoore/Marcy Lab School/immigrants-seek-front-end/dreambridge/src/InboxSidebar.css';
+import '../../InboxSidebar.css';
 import React from 'react';
 import DonutLargeIcon from '@material-ui/icons/DonutLarge'
 import {Avatar, IconButton} from '@material-ui/core';

@@ -1,4 +1,4 @@
-import '/Users/jvredmoore/Marcy Lab School/immigrants-seek-front-end/dreambridge/src/Chat.css';
+import '../../Chat.css';
 import {Avatar, IconButton} from '@material-ui/core';
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import React from 'react';

@@ -6,6 +6,7 @@ import Button from '../elements/Button';
 import Image from '../elements/Image';
 import Modal from '../elements/Modal';
 import SmoothScroll from '../elements/SmoothScroll';
+import { Link } from 'react-router-dom';
 
 
 const propTypes = {
@@ -73,8 +74,8 @@ const Hero = ({
               Our mission here at DreamBridge is to bridge the gap between immigrants and DACA recipients who are in need of help navigating the complex legislation surrounding immigration with people that are willing and qualified to help.</p>
               <div className="reveal-from-bottom" data-reveal-delay="600">
                 <ButtonGroup>
-                  <Button tag="a" color="primary" wideMobile href="#" >
-                    Sign up (Client)
+                  <Button tag="a" color="primary" wideMobile >
+                    <Link to={"/signup"}> Sign In </Link>
                     </Button>
                   <Button tag="a" color="dark" wideMobile href="#">
                     Apply to be on our platform as a Lawyer

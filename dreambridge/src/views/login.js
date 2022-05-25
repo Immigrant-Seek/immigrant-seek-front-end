@@ -49,10 +49,7 @@ function Login(){
         })
     },[userInfo])
 
-    React.useEffect(() => {
-        console.log(context.token);
-        console.log(context.verifiedUser);
-    },[context.token])
+
 
     return (
         <div>

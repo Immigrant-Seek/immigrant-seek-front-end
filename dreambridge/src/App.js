@@ -2,7 +2,7 @@ import './App.css';
 // import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Lawyers from './views/lawyers';
-// import Login from './views/login';
+import Login from './views/login';
 import LawyerProfile from './components/elements/LawyerProfile';
 import SignUp from './components/elements/SignUp';
 import Inbox from './components/elements/Inbox';
@@ -53,6 +53,7 @@ const App = () => {
           <Routes>
             <Route exact path='/' element={<Home />} layout={<LayoutDefault />} />
             <Route exact path='/signup' element={<SignUp />} />
+            <Route exact path = '/login' element={<Login />} />
             <Route exact path='/inbox' element={<Inbox />} />
             <Route exact path='/Connect-with-a-lawyer' element={<Lawyers />} />
             <Route path='Connect-with-a-lawyer/lawyers/:id' element={<LawyerProfile />} />

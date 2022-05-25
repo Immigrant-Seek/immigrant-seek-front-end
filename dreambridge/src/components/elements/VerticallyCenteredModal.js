@@ -1,4 +1,4 @@
-import '/Users/jvredmoore/Marcy Lab School/immigrants-seek-front-end/dreambridge/src/VerticallyCenteredModal.css';
+import '../../VerticallyCenteredModal.css';
 import {Modal, Button} from 'react-bootstrap';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import React from 'react';

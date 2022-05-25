@@ -45,10 +45,6 @@ function SignUp(){
         })
     }, [userInfo])
 
-    React.useEffect(() => {
-        console.log(context.token);
-    },[context.token])
-
     return (
         <div>
         <h2>Sign up using the form below!</h2>
@@ -73,7 +69,7 @@ function SignUp(){
                 Submit
             </Button>
         </Form>
-        <span>Already have an account? Click <Link to="/">here</Link> to sign in </span>
+        <span>Already have an account? Click <Link to="/login">here</Link> to sign in </span>
         {/* This is a temp link */}
         <Link to="/Connect-with-a-lawyer">Click to go to main page</Link>
     </div>
