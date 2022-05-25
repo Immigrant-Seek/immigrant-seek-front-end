@@ -10,7 +10,7 @@ import Context from '../../context/Context';
 function Sidebar (props) {
     const context = React.useContext(Context);
     console.log(context);
-    const {updateSelectedConvo} = props;
+    const {selectedConvoId, updateSelectedConvo, messagesSentCount} = props;
     return (
         <div className="sidebar">
             <div className='sidebarHeader'>
@@ -28,7 +28,7 @@ function Sidebar (props) {
                     </IconButton>
                 </div>
             </div>
-            <ConversationsList updateSelectedConvo = {updateSelectedConvo}className='conversationsList'/>
+            <ConversationsList selectedConvoId = {selectedConvoId} updateSelectedConvo = {updateSelectedConvo} className='conversationsList' messagesSentCount = {messagesSentCount}/>
         </div>
     )
 }

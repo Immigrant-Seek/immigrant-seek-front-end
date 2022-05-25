@@ -1,13 +1,15 @@
 import { Button, Form } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link , useNavigate} from 'react-router-dom';
 import Context from '../context/Context';
 import React from 'react';
+
 
 // This is where you render the Login Form component you created
 
 function Login(){
     const [userInfo, setUserInfo] = React.useState({})
     const context = React.useContext(Context);
+    const navigate = useNavigate();
 
     // when a user submits the form, we want to grab all the data from the form and update the state of the userInfo
     const handleSubmit = (event) => {
@@ -42,6 +44,7 @@ function Login(){
             console.log(context.verifiedUser.userInfo)
             if(data.userInfo !== undefined) {
                 context.updateLoggedIn(true);
+                navigate('/Connect-with-a-lawyer');
             }
         })
     },[userInfo])
