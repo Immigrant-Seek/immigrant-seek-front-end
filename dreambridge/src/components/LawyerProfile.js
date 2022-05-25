@@ -4,9 +4,11 @@ import Context from '../context/Context';
 import NavigationBar from '../components/Nav'
 import VerticallyCenteredModal from './VerticallyCenteredModal';
 import { Container, Form, Button} from 'react-bootstrap';
+import EditReviewModal from './EditReviewModal';
 
 function LawyerProfile(){
     const [modalShow, setModalShow] = useState(false);
+    const [ show, setShow ] = useState(false);
     const params = useParams();
     let navigate = useNavigate();
     const context = useContext(Context)
@@ -83,6 +85,8 @@ function LawyerProfile(){
         })
     }
 
+    
+
     return (
         <>
         <NavigationBar/>
@@ -122,7 +126,11 @@ function LawyerProfile(){
                         </>
                         {context.isLoggedIn && (context.verifiedUser.userInfo.user_id == review.client_id) &&
                         <>
-                        <button>Edit</button>
+                        <button onClick={() => setShow(true)} id={review.review_id}>
+                        Edit
+                        </button>
+                        <EditReviewModal show={show} onHide={() => setShow(false)} id={review.review_id}/>
+                        {/* <button onClick={handleEdit} id={review.review_id}>Edit</button> */}
                         <button onClick={handleDelete} key={review.review_id} id={review.review_id}>Delete</button>
                         </>
                         }

@@ -3,6 +3,7 @@ import Context from "./Context";
 
 function ContextProvider({children}){
     const [ listOfLawyers, updateLawyerList ] = useState([]);
+    const [ listOfClients, updateClientList ] = useState([]);
     const [ token, updateToken ] = useState("");
     const [verifiedUser, updateVerifiedUser] = useState({});
     const [ listOfStates, updateStatesList ] = useState([]);
@@ -44,10 +45,24 @@ function ContextProvider({children}){
         })
     },[])
 
+    const getAllClients = async() => {
+        const res = await fetch("http://localhost:3030/users")
+        const data = await res.json();
+        return data.data
+    }
+
+    useEffect(() => {
+        getAllClients().then(clients => {
+            updateClientList(clients)
+        })
+    }, [])
+
     const state = {
         getAllLawyers, 
         listOfLawyers, 
         updateLawyerList,
+        listOfClients, 
+        updateClientList,
         getAllStates,
         listOfStates,
         updateStatesList,
