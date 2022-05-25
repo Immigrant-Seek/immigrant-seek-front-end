@@ -1,7 +1,9 @@
-import { Button, Form } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Context from '../../context/Context';
 import React from 'react';
+import Input from '../elements/Input';
+import Button from '../elements/Button';
 
 function SignUp(){
     // state to keep track of the user that signs up, initailzied to object with values of empty strings
@@ -49,26 +51,27 @@ function SignUp(){
         <div>
         <h2>Sign up using the form below!</h2>
         <Form onSubmit = {handleSubmit}>
-            <Form.Group className="mb-3" controlId="formBasicFirstName">
-                <Form.Label>First Name</Form.Label>
-                <Form.Control name ="firstName" type="text" placeholder="Enter your first name" />
+        <Form.Group controlId="formBasicFirstName">
+              <Input name="firstName" type="text" placeholder="Enter your first name"/>
             </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicLastName">
-                <Form.Label>Last Name</Form.Label>
-                <Form.Control name ="lastName" type="text" placeholder="Enter your last name" />
+            <Form.Group controlId="formBasicLastName">
+              <Input name="lastName" type="text" placeholder="Enter your last name"/>
             </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Email address</Form.Label>
-                <Form.Control name ="email" type="email" placeholder="Enter email" />
+            <Form.Group controlId="formBasicEmail">
+              <Input name="email" type="text" placeholder="Enter Email"/>
+            </Form.Group>           
+             <Form.Group controlId="formBasicPassword">
+              <Input name="password" type="text" placeholder="Password"/>
             </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control name ="passwrd" type="password" placeholder="Password" />
+            <Form.Group controlId="formBasicPassword">
+              <Input name="password" type="text" placeholder="Confirm Password"/>
             </Form.Group>
+            <br></br>
             <Button variant="primary" type="submit" >
                 Submit
             </Button>
         </Form>
+        <br></br>
         <span>Already have an account? Click <Link to="/login">here</Link> to sign in </span>
         {/* This is a temp link */}
         <Link to="/Connect-with-a-lawyer">Click to go to main page</Link>

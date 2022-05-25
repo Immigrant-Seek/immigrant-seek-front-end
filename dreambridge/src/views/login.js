@@ -1,8 +1,9 @@
-import { Button, Form } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
 import { Link , useNavigate} from 'react-router-dom';
 import Context from '../context/Context';
 import React from 'react';
-
+import Input from '../components/elements/Input';
+import Button from '../components/elements/Button';
 
 // This is where you render the Login Form component you created
 
@@ -55,18 +56,16 @@ function Login(){
         <div>
         <h2>Sign In</h2>
         <Form onSubmit = {handleSubmit}>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Email address</Form.Label>
-                <Form.Control name ="email" type="email" placeholder="Enter email" />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control name ="passwrd"  type="password" placeholder="Password" />
-            </Form.Group>
+         <Form.Group controlId="formBasicEmail">
+              <Input name="email" type="text" placeholder="Email"/>
+              <Input name="password" type="text" placeholder="Password" controlId="formBasicPassword"/>
+          </Form.Group>
+          <br></br>
             <Button variant="primary" type="submit" >
                 Submit
             </Button>
         </Form>
+        <br></br>
         <span>Don't have an account yet? Click <Link to="/signup">here</Link> to sign up </span>
         {/* This is a temp link */}
         <Link to="/Connect-with-a-lawyer">Click to go to main page</Link>
