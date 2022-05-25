@@ -62,6 +62,10 @@ function LawyerProfile(){
         return data;
     }
 
+
+    // Reviewer's name on update doesn't render once review is posted because newPostData.newReview doesn't return user's first name
+    // 
+
     useEffect(() => {
         postReview(postInfo).then(newPostData => {
             setCurrentReviews([...currentReviews, newPostData.newReview])
@@ -122,7 +126,6 @@ function LawyerProfile(){
                         </>
                         {context.isLoggedIn && (context.verifiedUser.userInfo.user_id == review.client_id) &&
                         <>
-                        <button>Edit</button>
                         <button onClick={handleDelete} key={review.review_id} id={review.review_id}>Delete</button>
                         </>
                         }
