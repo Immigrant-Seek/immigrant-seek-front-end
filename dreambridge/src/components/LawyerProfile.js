@@ -122,7 +122,6 @@ function LawyerProfile(){
                         </>
                         {context.isLoggedIn && (context.verifiedUser.userInfo.user_id == review.client_id) &&
                         <>
-                        <button>Edit</button>
                         <button onClick={handleDelete} key={review.review_id} id={review.review_id}>Delete</button>
                         </>
                         }

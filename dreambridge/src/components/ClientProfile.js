@@ -1,75 +1,103 @@
+import React, { useState, useEffect, useContext } from 'react'
+import Context from '../context/Context'
+
 function ClientProfile(){
 
+  const context = useContext(Context)
+  const [ client, setClient ] = useState([])
 
+  const [ clientFirstName, setClientFirstName ] = useState(null)
+  const [ clientLastName, setClientLastName ] = useState(null)
+
+  const [count, setCount ] = useState(0)
+  console.log(count)
+  console.log(client)
+
+  useEffect(() => {
+    fetch(`http://localhost:3030/user/${context.verifiedUser.userInfo.user_id}`)
+    .then(res => res.json())
+    .then((data) => {
+      setClient(data.data[0])
+    })
+  }, [count])
+
+  const handleEditFirstName = (event) => {
+    event.preventDefault();
+    console.log("first name btn clicked")
+    const editFirstName = event.target.editInput.value
+    setClientFirstName({
+      first_name: editFirstName
+    })
+    event.target.reset();
+    patchFirstName(clientFirstName)
+  }
+  
+  const patchFirstName = (editInfo) => {
+    const userId = client.user_id
+    fetch(`http://localhost:3030/users/firstName/${userId}`, {
+      method: "PATCH", 
+      headers: {
+        "Content-Type": "application/json",
+    },
+    body: JSON.stringify(editInfo)
+    })
+    .then(res => res.json())
+    .then((data) => {
+      console.log(data)
+      setCount(count + 1)
+    })
+  }
+  
+  const handleEditLastName = (event) => {
+    event.preventDefault();
+    console.log("edit last btn clicked")
+    const editLastName = event.target.editInput2.value
+    setClientLastName({
+      last_name: editLastName
+    })
+    event.target.reset();
+    patchLastName(clientLastName)
+  }
+  
+  const patchLastName = (editInfo) => {
+    const userId = client.user_id
+    fetch(`http://localhost:3030/users/lastName/${userId}`, {
+      method: "PATCH", 
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(editInfo)
+    })
+    .then(res => res.json())
+    .then((data) => {
+      console.log(data)
+      setCount(count + 1)
+    })
+  }
 
     return (
-        <div className="container db-social">
-  <div className="jumbotron jumbotron-fluid" />
-  <div className="container-fluid">
-    <div className="row justify-content-center">
-      <div className="col-xl-11">
-        <div className="widget head-profile has-shadow">
-          <div className="widget-body pb-0">
-            <div className="row d-flex align-items-center">
-              <div className="col-xl-4 col-md-4 d-flex justify-content-lg-start justify-content-md-start justify-content-center">
-                
-              </div>
-              <div className="col-xl-4 col-md-4 d-flex justify-content-center">
-                <div className="image-default">
-                  <img
-                    className="rounded-circle"
-                    src="https://bootdey.com/img/Content/avatar/avatar5.png"
-                    alt="..."
-                  />
-                </div>
-                <div className="infos" role="form">
-                  <h2>Josh Amaya</h2>
-                  <div className="phone-number">(347)457-3680</div>
-                  <div className="email">joshamaya@gmail.com</div>
-                </div>
-              </div>
-              <div className="col-xl-4 col-md-4 d-flex justify-content-lg-end justify-content-md-end justify-content-center">
-                <div className="edit-profile">
-                  <a className="btn btn-shadow" href="EditProfile">
-                    <i className="la la-user-plus" />
-                    Edit Profile
-                  </a>
-                  <div className="actions dark">
-                    <div className="dropdown">
-                      <button
-                        type="button"
-                        data-toggle="dropdown"
-                        aria-haspopup="true"
-                        aria-expanded="false"
-                        className="dropdown-toggle"
-                      >
-                        <i className="la la-ellipsis-h" />
-                      </button>
-                      <div
-                        className="dropdown-menu"
-                        x-placement="bottom-start"
-                        style={{
-                          display: "none",
-                          position: "absolute",
-                          willChange: "transform",
-                          top: 0,
-                          left: 0,
-                          transform: "translate3d(0px, 35px, 0px)"
-                        }}
-                      >
-                      
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div className="container db-social">
+      <div className="image-default">
+        <svg xmlns="http://www.w3.org/2000/svg" width="66" height="66" fill="currentColor" className="bi bi-person-circle, rounded-circle" viewBox="0 0 16 16">
+        <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+        <path fillRule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+        </svg>
       </div>
-    </div>
-  </div>
-</div>
+      <div className="infos" role="form">
+        <h2>{client.first_name} {client.last_name}</h2>
+        <div className="email">{client.email}</div>
+          <>
+          <form onSubmit={handleEditFirstName}>
+          <input placeholder='Edit first name' type="text" name="editInput"/>
+          <button type="submit">Save</button>
+          </form>
+          <form onSubmit={handleEditLastName}>
+          <input placeholder='Edit last name' type="text" name="editInput2"/>
+          <button type="submit">Save</button>
+          </form>
+          </>
+          </div>
+          </div>
     )
 }
 
