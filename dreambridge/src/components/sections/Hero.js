@@ -70,8 +70,9 @@ const Hero = ({
                   <Button className="signin-btn" tag="a" wideMobile >
                     <Link to={"/signup"}> Sign In </Link>
                     </Button>
-                  <Button tag="a" color="light" wideMobile href="#">
-                    Apply as a Lawyer
+
+                  <Button tag="a" color="dark" wideMobile>
+                  <Link to={"/lawyer/signup"}> Join our platform as a lawyer </Link>
                     </Button>
                 </ButtonGroup>
               </div>

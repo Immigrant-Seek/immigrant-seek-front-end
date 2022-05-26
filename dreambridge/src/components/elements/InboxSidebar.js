@@ -14,7 +14,7 @@ function Sidebar (props) {
     return (
         <div className="sidebar">
             <div className='sidebarHeader'>
-                <Avatar/>
+                {context.verifiedUser.userInfo.is_lawyer ? <Avatar src = {context.verifiedUser.userInfo.profile_pic_link} /> : <Avatar src = 'https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fknowledgebase.lookseek.com%2Fimages%2FNature%2FInsects%2FButterfly%2FMonarch-Butterfly.jpg&f=1&nofb=1'/>}
                 <h1>{context.verifiedUser.userInfo.first_name}'s Inbox</h1>
                 <div className='sidebarHeaderRight'>
                     <IconButton>

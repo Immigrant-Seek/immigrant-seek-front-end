@@ -1,19 +1,22 @@
 .conversationCard {
-    display: flex;
-    padding: 20px;
-    cursor: pointer;
-    border-bottom: 1px solid #f6f6f6;
+    display: flex !important;
+    padding: 20px !important;
+    cursor: pointer !important;
+    border-bottom: 1px solid #f6f6f6 !important;
 }
 
 .conversationCard:hover {
-    background-color: #ebebeb;
+    background-color: #ebebeb !important;
 }
 
 .conversationCardInfo>h2 {
-    font-size: 16px;
-    margin-bottom: 8px;
+    display: flex;
+    margin-top: 0;
+    color: black;
+    font-size: 20px !important;
+    margin-bottom: 8px !important;
 }
 
 .conversationCardInfo {
-    margin-left: 15px;
+    margin-left: 15px !important;
 }

@@ -5,16 +5,26 @@
 }
 
 .sidebarHeader {
+    margin-top: 0;
     display: flex;
     justify-content: space-between;
     padding: 20px;
     border-right: 1px solid lightgrey;
+    height: 100px;
+}
+
+.sidebarHeader>h1 {
+    margin-top: 0;
+    margin-left: 0;
+    color: black;
+    font-size: 30px;
 }
 
 .sidebarHeaderRight {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-top: 0;
     min-width: 10vw;
 }
 

@@ -8,6 +8,7 @@ import SignUp from './components/elements/SignUp';
 import Inbox from './components/elements/Inbox';
 import UserProfile from './views/userprofile';
 import ScrollReveal from '../src/components/utils/ScrollReveal';
+import Clients from './components/elements/Clients';
 // Layouts
 import LayoutDefault from '../src/components/layouts/LayoutDefault';
 
@@ -33,6 +34,7 @@ import Home from './views/Home';
 // export default App;
 
 import React, { useRef } from 'react';
+import LawyerSignup from './components/elements/lawyerSignup';
 
 const App = () => {
   const childRef = useRef();
@@ -45,9 +47,11 @@ const App = () => {
           <Routes>
             <Route exact path='/' element={<Home />} layout={<LayoutDefault />} />
             <Route exact path='/signup' element={<SignUp />} />
+            <Route exact path = '/lawyer/signup' element= {<LawyerSignup />} />
             <Route exact path = '/login' element={<Login />} />
             <Route exact path='/inbox' element={<Inbox />} />
             <Route exact path='/Connect-with-a-lawyer' element={<Lawyers />} />
+            <Route exact path='/Connect-with-a-client' element={<Clients />} />
             <Route path='Connect-with-a-lawyer/lawyers/:id' element={<LawyerProfile />} />
             <Route exact path='/userprofile' element={<UserProfile />} />
           </Routes>
