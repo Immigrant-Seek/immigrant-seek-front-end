@@ -36,16 +36,8 @@ import Home from './views/Home';
 import React, { useRef } from 'react';
 import LawyerSignup from './components/elements/lawyerSignup';
 
-
-
-
-
-
 const App = () => {
-
   const childRef = useRef();
-
-
 
   return (
     <ScrollReveal

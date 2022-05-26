@@ -5,9 +5,7 @@ import ButtonGroup from '../elements/ButtonGroup';
 import Button from '../elements/Button';
 import Image from '../elements/Image';
 import Modal from '../elements/Modal';
-import SmoothScroll from '../elements/SmoothScroll';
 import { Link } from 'react-router-dom';
-
 
 const propTypes = {
   ...SectionProps.types
@@ -55,28 +53,24 @@ const Hero = ({
     bottomDivider && 'has-bottom-divider'
   );
 
-
-  
   return (
-    
     <section
       {...props}
       className={outerClasses}
     >
-      <div className="container-sm">
+      <div className="nav-top">
         <div className={innerClasses}>
-          <div className="hero-content">
-            <h1 className="mt-0 mb-16 reveal-from-bottom" data-reveal-delay="200">
-              DreamBridge
+          <div className="hero-content sticky-top">
+            <h1 className="mt-0 mb-16 reveal-from-bottom dreamsbridge" data-reveal-delay="200">
+              DreamsBridge
             </h1>
-            <div className="container-xs">
-              <p className="m-0 mb-32 reveal-from-bottom" data-reveal-delay="400">
-              Our mission here at DreamBridge is to bridge the gap between immigrants and DACA recipients who are in need of help navigating the complex legislation surrounding immigration with people that are willing and qualified to help.</p>
+            <div className="nav-items">
               <div className="reveal-from-bottom" data-reveal-delay="600">
                 <ButtonGroup>
-                  <Button tag="a" color="primary" wideMobile >
+                  <Button className="signin-btn" tag="a" wideMobile >
                     <Link to={"/signup"}> Sign In </Link>
                     </Button>
+
                   <Button tag="a" color="dark" wideMobile>
                   <Link to={"/lawyer/signup"}> Join our platform as a lawyer </Link>
                     </Button>
@@ -84,6 +78,7 @@ const Hero = ({
               </div>
             </div>
           </div>
+          <div className='landing-page-container'>
           <div className="hero-figure reveal-from-bottom illustration-element-01" data-reveal-value="20px" data-reveal-delay="800">
             <a
               data-video="https://www.youtube-nocookie.com/embed/UzYDqQDNFzc"
@@ -93,11 +88,16 @@ const Hero = ({
             >
               <Image
                 className="has-shadow"
-                src={require('./../../assets/images/dreamers.jpg')}
+                src='https://cloudfront-us-east-2.images.arcpublishing.com/reuters/L2LSWLHDORINLDIMDESV2EGQIY.jpg'
                 alt="Hero"
-                width={896}
-                height={504} />
+                width={850}
+                height={500} />
             </a>
+            <div className='mission-statement'>
+          <h1 className="m-0 mb-32 reveal-from-bottom " data-reveal-delay="400">
+            Helping DACA recipents through the renewal process.</h1>
+          </div>
+          </div>
           </div>
           <Modal
             id="video-modal"

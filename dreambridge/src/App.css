@@ -3,34 +3,96 @@
 }
 
 body {
-  background-color: white;
+  background-color: white!important;
 }
 
 .card {
   margin: 5%;
   cursor: pointer;
   border: none!important;
-  background-color: transparent!important;
+  border-radius: 2%;
+  padding: 2%;
+}
+
+.lawyer-card {
+  margin: 5%;
+  cursor: pointer;
+  border: none!important;
+  background-color:white;
+  box-shadow: 20px 20px 50px grey;
+  padding: 3%;
+  border-radius: 2%;
 }
 
 .cards {
-  display: flex;
+  /* display: flex; */
   flex-wrap: wrap;
   justify-content: center;
+}
+
+.lawyer-img-card {
+  text-align: center;
+}
+
+.lawyer-home-card {
+  display: flex;
+}
+
+.lawyer-home-card:hover{
+  border: #151719 solid 1px!important;
+  box-shadow: 20px 20px 50px 10px grey;
+}
+
+.lawyer-home-card .content {
+  text-align: start;
+  margin-left: 10%;
+  width: 60%;
+}
+
+.lawyer-home-card h4 {
+  color: #151719;
+  margin-bottom: 1%;
+}
+
+.lawyer-home-card-schedule-btn {
+  text-align: end;
+}
+
+.schedule-btn:hover {
+  background-color:cadetblue!important;
+}
+
+ul, li {
+  list-style: none!important;
+}
+
+ul {
+  background-color: cornflowerblue;
+  border-radius: 20%;
+  color: black;
+  max-width: fit-content;
+  padding: 1% !important;
 }
 
 .image {
   height: 250px;
   width: 250px;
-  border-radius: 100% !important;
+  margin: 0%;
+  display: inline;
+}
+
+.img-fluid {
+  margin: 0%!important;
 }
 
 .lawyer-container {
-  margin-top: 5%;
+  margin-top: 5% !important;
+  padding: 0%;
 } 
 
-.padding {
-  padding: 3%;
+.row {
+  display: flex;
+  justify-content: space-between;
 }
 
 .button-group {
@@ -46,10 +108,9 @@ body {
 
 .row-search-and-filter {
   display: flex;
-}
-
-.content {
-  margin: 2%;
+  margin: auto;
+  justify-content: space-around;
+  margin-top: 5%!important;
   padding: 3%;
 }
 
@@ -59,7 +120,7 @@ body {
 }
 
 .calendly {
-  color: black;
+  color: black!important;
   text-decoration-line: none;
 }
 
@@ -68,4 +129,263 @@ body {
     flex-direction: column;
     align-items: center;
   }
+  
 }
+
+@media only screen and (max-width: 1000px){
+  .row {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.container {
+  max-width: none!important;
+}
+
+.bio-section-lawyer {
+  width: 850px;
+  padding: 3%;
+  background-color: white;;
+  border-radius: 2%;
+}
+
+.card-text {
+  color: black;
+}
+
+.info-color {
+  color: black!important;
+}
+
+.lawyer-name {
+  border-bottom: solid #151719 3px;
+}
+
+.review-divider {
+  padding: 2%;
+  border-bottom: solid 2px white;
+}
+
+.review-card {
+  padding: 2%;
+}
+
+.review-plus-user-svg {
+  display: flex;
+}
+
+.navi {
+  background-color:#25282C;
+}
+
+.hover-link {
+  color: #151719!important;
+}
+
+.company-name {
+  margin-top: 0%;
+}
+
+.form-centered {
+  text-align: center;
+  background-color:#151719;
+  color: white;
+  position:absolute;
+  top:0px;
+  right:0px;
+  bottom:0px;
+  left:0px;
+}
+
+.form-centered h2 {
+  color: white!important
+}
+
+.signup-form {
+  width: 80%;
+  margin: auto;
+}
+
+
+.login-input {
+  margin: 3%;
+}
+
+.input-deets {
+  padding: 1.5%;
+  font-weight: bold!important;
+}
+
+.db-social {
+  text-align: center;
+  margin: auto;
+  margin-top: 10%!important;
+}
+
+.image-default {
+  margin:auto;
+  width: fit-content;
+}
+
+.infos h2 {
+  color:#151719
+}
+
+.center-content {
+  color: #151719 !important;;
+}
+
+h1, h3{
+  color: #151719 !important;
+}
+
+.signin-btn {
+  background-color:cornflowerblue!important;
+}
+
+.hero-inner {
+  padding-top: 3%!important;
+}
+
+.hero-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.mission-statement {
+  color: white!important;
+  margin: auto;
+  margin-top: 15%;
+  margin-right: 3%;
+  text-align: center;
+  max-width: 800px;
+  z-index: 90;
+}
+
+.nav-items {
+  margin-right: 3%;
+}
+
+.dreamsbridge {
+  margin-left: 3%;
+  color: white !important;
+}
+
+.hero-figure {
+  display: flex;
+}
+
+.landing-page-container{
+  width: 90%;
+  height: 100%;
+  margin: auto;
+  margin-top: 5%;
+}
+
+.has-shadow {
+  position: absolute;
+}
+
+.hero-inner {
+  background-color: #25282C;
+}
+
+.landing-page-footer {
+  max-height: 20%;
+}
+
+.testimonial-item-content{
+  text-align: center;
+}
+
+.testimonial-item-content::before {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 18px;
+  margin-top: 0%!important;
+  margin-bottom: 16px;
+  background-image: none!important;
+  background-repeat: no-repeat;
+}
+
+.team-img {
+  margin-right: 1%;
+  margin-left: 1%;
+  margin: auto;
+}
+
+.tiles-item-inner {
+  padding: 3%!important;
+}
+
+.testimonial-item-footer {
+  display: flex;
+  justify-content:start;
+}
+
+.social-margin {
+  margin-left: 4%;
+}
+
+.social-margin:hover {
+  cursor: pointer;
+}
+
+.liam-img {
+  width: 200px;
+  height: 300px;
+}
+
+.mission-statement-container {
+  width: 70%;
+  padding: 5%;
+  margin: auto;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  text-align: center;
+  background-color: #25282C;
+  box-shadow: 20px 20px 50px 10px grey;
+  border-radius: 1%;
+}
+
+.mission-statement-container h2 {
+  color: white!important;
+}
+
+.spacing {
+  line-height: 180%;
+  letter-spacing: 1px;
+  word-spacing:2px;
+  color: white!important;
+}
+
+.mission-statement h1 {
+  color: rgb(207, 145, 9)!important;
+  font-size:4rem;
+  word-spacing: 3px;
+  letter-spacing: 3px;
+  line-height: 110%;
+}
+
+.testimonial {
+  background-color: #25282C;
+}
+
+.testimonial h2 {
+  color:rgb(207, 145, 9)
+}
+
+.testimonial p {
+  color: white
+}
+
+.testimonial-item-content h4 {
+  color:rgb(207, 145, 9)
+}
+
+.testimonial .section-header {
+  padding-bottom: 0;
+}
+

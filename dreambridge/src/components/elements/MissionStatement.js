@@ -4,7 +4,7 @@ function MissionStatement(){
   <div className="card-header">
   </div>
   <div className="card-body">
-    <h5 className="card-title">Our Mission</h5>
+    <h3 className="card-title">Our Mission</h3>
     <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
   </div>
   <div className="card-footer text-muted">

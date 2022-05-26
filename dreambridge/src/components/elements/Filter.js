@@ -19,29 +19,6 @@ function Filter(){
             <Dropdown.Toggle id="dropdown-basic">
             Filter
             </Dropdown.Toggle>
-
-            <Dropdown.Menu>
-                <Dropdown>
-                    <Dropdown.Toggle id="dropdown-basic" className="filter-btn">
-                        State
-                    </Dropdown.Toggle>
-                    <Dropdown.Menu>
-                        <Dropdown.Item href="#/action-1">{context.listOfStates.map((state) => {
-                            return <FilterStateItem state={state}/>
-                        })}</Dropdown.Item>
-                    </Dropdown.Menu>
-                </Dropdown>
-                <Dropdown>
-                    <Dropdown.Toggle id="dropdown-basic" className="filter-btn">
-                        Firm
-                    </Dropdown.Toggle>
-                    <Dropdown.Menu>
-                        <Dropdown.Item href="#/action-2">{context.listOfFirms.map((firm) => {
-                            return <FilterListItem firm={firm}/>
-                        })}</Dropdown.Item>
-                    </Dropdown.Menu>
-                </Dropdown>
-            </Dropdown.Menu>
             </Dropdown>
         </Nav>
         </Container>
