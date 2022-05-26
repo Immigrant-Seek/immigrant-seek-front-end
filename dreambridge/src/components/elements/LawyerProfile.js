@@ -91,7 +91,7 @@ function LawyerProfile(){
         <>
         <NavigationBar/>
         <Container className="lawyer-container">
-        <button onClick={() => navigate('/Connect-with-a-Lawyer')}><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" className="bi bi-arrow-left" viewBox="0 0 16 16">
+        <button className="lawyer-back-btn" onClick={() => navigate('/Connect-with-a-Lawyer')}><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" className="bi bi-arrow-left" viewBox="0 0 16 16">
   <path fillRule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
 </svg></button>
         <div className="lawyer-card mb-3">
@@ -116,7 +116,7 @@ function LawyerProfile(){
             <VerticallyCenteredModal show={modalShow} onHide={() => setModalShow(false)} />
         </div>}
         <h3 className='padding'>Reviews:</h3>
-        <div>
+        <div className='review-bottom-divider'>
             {currentReviews.map((review) => {
                 return (
                     <>
@@ -142,7 +142,7 @@ function LawyerProfile(){
             })}
         </div>
         {context.isLoggedIn &&
-        <div>
+        <div className="review-input">
             <Form onSubmit = {handleSubmit}>
                 <input name ="reviewBody" type="text" placeholder="Write a Review"/><button type="submit">Submit</button>
             </Form>

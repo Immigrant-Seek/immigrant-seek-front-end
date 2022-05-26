@@ -37,7 +37,7 @@ function LawyerCard(props){
                 </div>
                 <div className="lawyer-home-card-schedule-btn">
                     <Button color="dark" className="schedule-btn">
-                        Schedule appointment
+                        <a href="https://calendly.com/dominic-cullen">Schedule appointment</a>
                     </Button>
                 </div>
             </div>
