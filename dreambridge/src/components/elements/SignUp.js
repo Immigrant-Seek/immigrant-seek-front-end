@@ -46,29 +46,31 @@ function SignUp(){
     }, [userInfo])
 
     return (
-        <div>
+        <div className='form-centered'>
+            <div className='signup-form'>
         <h2>Sign up using the form below!</h2>
-        <Form onSubmit = {handleSubmit}>
-            <Form.Group className="mb-3" controlId="formBasicFirstName">
-                <Form.Label>First Name</Form.Label>
+        <Form onSubmit = {handleSubmit} >
+            <Form.Group className="mb-3 login-input" controlId="formBasicFirstName">
+                <Form.Label className="input-deets">First Name</Form.Label>
                 <Form.Control name ="firstName" type="text" placeholder="Enter your first name" />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicLastName">
-                <Form.Label>Last Name</Form.Label>
+            <Form.Group className="mb-3 login-input" controlId="formBasicLastName">
+                <Form.Label className="input-deets">Last Name</Form.Label>
                 <Form.Control name ="lastName" type="text" placeholder="Enter your last name" />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Email address</Form.Label>
+            <Form.Group className="mb-3 login-input" controlId="formBasicEmail">
+                <Form.Label className="input-deets">Email address</Form.Label>
                 <Form.Control name ="email" type="email" placeholder="Enter email" />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
+            <Form.Group className="mb-3 login-input" controlId="formBasicPassword">
+                <Form.Label className="input-deets">Password</Form.Label>
                 <Form.Control name ="passwrd" type="password" placeholder="Password" />
             </Form.Group>
-            <Button variant="primary" type="submit" >
+            <Button variant="primary" type="submit" className='login-input'>
                 Submit
             </Button>
         </Form>
+        </div>
         <span>Already have an account? Click <Link to="/login">here</Link> to sign in </span>
         {/* This is a temp link */}
         <Link to="/Connect-with-a-lawyer">Click to go to main page</Link>

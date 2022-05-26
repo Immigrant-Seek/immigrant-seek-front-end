@@ -94,15 +94,15 @@ function LawyerProfile(){
         <button onClick={() => navigate('/Connect-with-a-Lawyer')}><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" className="bi bi-arrow-left" viewBox="0 0 16 16">
   <path fillRule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
 </svg></button>
-        <div className="card mb-3">
+        <div className="lawyer-card mb-3">
             <div className="row g-0">
-            <div className="col-md-4">
-            <img src={lawyer.profile_pic_link} className="img-fluid rounded-start image" alt="ohno"/>
-            <h3>{lawyer.first_name} {lawyer.last_name}</h3>
-                <p><strong>Firm:</strong> {lawyer.firm}</p>
-                <p><strong>Email:</strong> {lawyer.email}</p>
+            <div className="col-md-4 lawyer-img-card">
+            <img src={lawyer.profile_pic_link} className="img-fluid rounded image" alt="ohno"/>
+            <h3 className='info-color lawyer-name'>{lawyer.first_name} {lawyer.last_name}</h3>
+                <p className='info-color'><strong>Firm:</strong><p className='lawyer-firm'>{lawyer.firm}</p></p>
+                <p className='info-color'><strong>Email:</strong><p className='lawyer-email'>{lawyer.email}</p></p>
             </div>
-    <div className="col-md-8">
+    <div className="col-md-8 bio-section-lawyer">
       <div className="card-body padding">
         <h3 className="card-title">Biography:</h3>
         <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -121,8 +121,16 @@ function LawyerProfile(){
                 return (
                     <>
                         <>
-                        <p key={review.review_id}>{review.review_body}</p>
-                        <p className="card-text"><small className="text-muted">Reviewed by: {review.first_name}</small></p>
+                        <div className='review-plus-user-svg'>
+                        <>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" fill="currentColor" className="bi bi-person-circle, rounded-circle" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                            <path fillRule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                        </svg>
+                        </>
+                        <p className='review-card' key={review.review_id}>{review.review_body}</p>
+                        </div>
+                        <p className="card-text review-divider"><small className="text-muted">Reviewed by: {review.first_name}</small></p>
                         </>
                         {context.isLoggedIn && (context.verifiedUser.userInfo.user_id == review.client_id) &&
                         <>

@@ -1,8 +1,5 @@
 import React from 'react';
-// import sections
 import Hero from '../components/sections/Hero';
-import FeaturesTiles from '../components/sections/FeaturesTiles';
-import FeaturesSplit from '../components/sections/FeaturesSplit';
 import Testimonial from '../components/sections/Testimonial';
 
 const Home = () => {
@@ -10,8 +7,9 @@ const Home = () => {
   return (
     <>
       <Hero className="illustration-section-01" />
-      <FeaturesTiles />
-      <FeaturesSplit invertMobile topDivider imageFill className="illustration-section-02" />
+      <div className='mission-statement-container'>
+        <h3 className='spacing'>Here at DreamsBridge we aim to bridge the gap between immigrants and DACA recipients who are in need of help navigating the complex legislation surrounding immigration with people that are willing and qualified to help.</h3>
+      </div>
       <Testimonial topDivider />
     </>
   );

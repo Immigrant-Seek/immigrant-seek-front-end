@@ -52,18 +52,18 @@ function Login(){
 
 
     return (
-        <div>
+        <div className='form-centered'>
         <h2>Sign In</h2>
         <Form onSubmit = {handleSubmit}>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Email address</Form.Label>
+            <Form.Group className="mb-3 login-input" controlId="formBasicEmail">
+                <Form.Label className="input-deets">Email</Form.Label>
                 <Form.Control name ="email" type="email" placeholder="Enter email" />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
+            <Form.Group className="mb-3 login-input" controlId="formBasicPassword">
+                <Form.Label className="input-deets">Password</Form.Label>
                 <Form.Control name ="passwrd"  type="password" placeholder="Password" />
             </Form.Group>
-            <Button variant="primary" type="submit" >
+            <Button variant="primary" type="submit" className='login-input'>
                 Submit
             </Button>
         </Form>

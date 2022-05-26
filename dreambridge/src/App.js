@@ -34,16 +34,8 @@ import Home from './views/Home';
 
 import React, { useRef } from 'react';
 
-
-
-
-
-
 const App = () => {
-
   const childRef = useRef();
-
-
 
   return (
     <ScrollReveal

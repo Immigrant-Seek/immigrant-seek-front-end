@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Button from "./Button";
 
 
 function LawyerCard(props){
@@ -16,7 +17,7 @@ function LawyerCard(props){
     }, [])
 
     return (
-        <div className="card">
+        <div className="card lawyer-home-card">
             <div>
                 <Link to={`lawyers/${lawyer.user_id}`}>
                 <img alt="oh no!" src={lawyer.profile_pic_link} className="image"  />
@@ -24,7 +25,20 @@ function LawyerCard(props){
             </div>
             <div className="content">
                 <div className="header">
-                    <h5>{lawyer.first_name} {lawyer.last_name}</h5>
+                    <h4>{lawyer.first_name} {lawyer.last_name}</h4>
+                </div>
+                    <ul>
+                        <li>
+                            {lawyer.firm}
+                        </li>
+                    </ul>
+                <div>
+                    <p>Lorem ipsum quis nostrud exercitation commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+                <div className="lawyer-home-card-schedule-btn">
+                    <Button color="dark" className="schedule-btn">
+                        Schedule appointment
+                    </Button>
                 </div>
             </div>
         </div>
