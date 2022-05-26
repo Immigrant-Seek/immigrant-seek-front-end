@@ -2,10 +2,11 @@ import Context from '../../context/Context';
 import React from 'react';
 function ChatMessage (props) {
     const context = React.useContext(Context)
+    console.log(props)
     let belongsToUser = props.messageDetails.is_sender_lawyer === context.verifiedUser.userInfo.is_lawyer
     return (
         <p className={belongsToUser ? "chatMessage sentMessage" : "chatMessage"}>
-            <span className='senderName'>{belongsToUser ? "You" : "Other User"}</span>
+            <span className='senderName'>{belongsToUser ? "You" : `${props.convoLawyerInfo.first_name} ${props.convoLawyerInfo.last_name}`}</span>
                 {props.messageDetails.message_body}
             <span className='messageTimestamp'>{props.messageDetails.TIME_STAMP}</span>
         </p>
