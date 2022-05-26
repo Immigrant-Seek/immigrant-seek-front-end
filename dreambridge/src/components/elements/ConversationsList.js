@@ -5,13 +5,22 @@ function ConversationsList (props) {
     const {selectedConvoId, updateSelectedConvo, messagesSentCount} = props
     const context = React.useContext(Context);
     const user = context.verifiedUser.userInfo.user_id;
+    const isLawyer = context.verifiedUser.userInfo.is_lawyer
     const [listOfConvos, updateListOfConvos] = React.useState([]);
         React.useEffect(() => {
-        fetch(`http://localhost:3030/clients/${user}/inbox`)
-        .then(response => response.json())
-        .then(data => {
-            updateListOfConvos(data.conversations);
-        })
+        if(isLawyer) {
+            fetch(`http://localhost:3030/lawyers/${user}/inbox`)
+            .then(response => response.json())
+            .then(data => {
+                updateListOfConvos(data.conversations);
+            })
+        } else {
+            fetch(`http://localhost:3030/clients/${user}/inbox`)
+            .then(response => response.json())
+            .then(data => {
+                updateListOfConvos(data.conversations);
+            })
+        }
     },[selectedConvoId])
 
     return (
