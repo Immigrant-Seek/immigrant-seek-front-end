@@ -44,7 +44,7 @@ function Login(){
             console.log(context.verifiedUser.userInfo)
             if(data.userInfo !== undefined) {
                 context.updateLoggedIn(true);
-                navigate('/Connect-with-a-lawyer');
+                context.verifiedUser.userInfo.is_lawyer ? navigate('/Connect-with-a-client') : navigate('/Connect-with-a-lawyer');
             }
         })
     },[userInfo])
