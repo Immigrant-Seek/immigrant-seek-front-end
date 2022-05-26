@@ -15,7 +15,8 @@ function ConversationCard (props) {
     }
     return (
         <div className="conversationCard" onClick={handleClick}>
-            <Avatar src = {props.convoDetails.profile_pic_link} />
+            {props.convoDetails.profile_pic_link ? <Avatar src = {props.convoDetails.profile_pic_link} />
+            : <Avatar src= "https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fknowledgebase.lookseek.com%2Fimages%2FNature%2FInsects%2FButterfly%2FMonarch-Butterfly.jpg&f=1&nofb=1"></Avatar>}
             <div className="conversationCardInfo">
                 <h2>{`${props.convoDetails.first_name} ${props.convoDetails.last_name}`}</h2>
                 <p>{recentMessage}</p>
