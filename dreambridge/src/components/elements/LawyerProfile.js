@@ -115,7 +115,8 @@ function LawyerProfile(){
             </Button>
             <VerticallyCenteredModal show={modalShow} onHide={() => setModalShow(false)} />
         </div>}
-        <h3 className='padding'>Reviews:</h3>
+        {currentReviews.length === 0 ? <h3>There are no reviews, add yours!</h3> :
+        <h3 className='padding'>Reviews:</h3>}
         <div>
             {currentReviews.map((review) => {
                 return (
@@ -141,6 +142,7 @@ function LawyerProfile(){
                 )
             })}
         </div>
+     
         {context.isLoggedIn &&
         <div>
             <Form onSubmit = {handleSubmit}>
