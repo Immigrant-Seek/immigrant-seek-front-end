@@ -181,7 +181,13 @@ ul {
 .review-card {
   padding: 2%;
   margin: 0%;
+  color:#151719;
 }
+
+.text-muted {
+  color:#25282C;
+}
+
 
 .review-plus-user-svg {
   display: flex;
