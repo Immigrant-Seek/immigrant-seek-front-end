@@ -179,7 +179,6 @@ function LawyerProfile(){
     </div>
   </div>
 </div>
-</div>
         </Container>
         </>
     )

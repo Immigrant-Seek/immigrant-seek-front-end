@@ -112,7 +112,6 @@ function ClientProfile(){
         <Button ><Link to = "/">Log Out</Link></Button>
         </div>
       </div>
-      </div>
     )
 }
 
