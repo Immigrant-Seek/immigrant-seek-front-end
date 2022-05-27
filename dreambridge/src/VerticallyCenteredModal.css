@@ -15,16 +15,15 @@
     border-radius: 30px;
     padding: 10px;
     max-height: fit-content;
-    /* overscroll-behavior-x: contain; */
     overflow-block: clip;
-    /* border: none; */
 }
 
 .modal-content {
     margin: auto;
     width: 70%;
-    margin-top: 10%;
-    background-color:lightgrey;
+    margin-top: 20%;
+    background-color: #bfbfbf;
+    box-shadow: 10px 10px 10px grey;
     border-radius: 1%;
 }
 
@@ -39,7 +38,13 @@
 
 .close-modal-btn {
     position: absolute;
-    margin-left: 64.1%;
-    margin-top: -3.5%;
+    margin-left: 64%;
+    margin-top: -3%;
     border-radius: 2%!important;
+    border: none!important;
+    background-color: transparent!important;
+}
+
+.h4 {
+    font-family: 'Martel', serif!important
 }

@@ -5,7 +5,7 @@ import LawyerNav from '../components/elements/NavForLawyers'
 function Clients(){
     return (
       <div className='App'>
-        <LawyerNav/>
+        <Nav/>
         <ClientProfile />
         </div>
     );

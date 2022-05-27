@@ -71,8 +71,8 @@ const Hero = ({
                     <Link to={"/login"}> Sign In </Link>
                     </Button>
 
-                  <Button tag="a" color="dark" wideMobile>
-                  <Link to={"/lawyer/signup"}> Join our platform as a lawyer </Link>
+                  <Button tag="a" color="light" wideMobile>
+                  <Link to={"/lawyer/signup"} className="lawyer-signup-btn"> Join our platform as a lawyer </Link>
                     </Button>
                 </ButtonGroup>
               </div>

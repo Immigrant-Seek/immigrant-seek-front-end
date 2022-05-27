@@ -45,7 +45,7 @@ const Testimonial = ({
 
   const sectionHeader = {
     title: 'Meet the Team',
-    paragraph: 'Vitae aliquet nullam eget felis semper quis lectus nulla at volutpat diam ut venenatis tellus—in ornare.'
+    // paragraph: 'Vitae aliquet nullam eget felis semper quis lectus nulla at volutpat diam ut venenatis tellus—in ornare.'
   };
 
   return (

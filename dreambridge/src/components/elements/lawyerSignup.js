@@ -59,44 +59,54 @@ function LawyerSignup(){
         <div className='form-centered'>
         <Form onSubmit={handleSubmit} className="user-form">
         <ButtonGroup className="form-btns-container">
-            <Button className="form-btns">
-                <h2>Sign Up</h2>
+            <Button className="form-btns signup-v1">
+                <h2 className='h2-hover'>Sign Up</h2>
             </Button>
-            <Button className="form-btns">
-                <Link to="/login"><h2>Sign In</h2></Link>
+            <Button className="form-btns signin-v2">
+                <Link to="/login"><h2 className='h2-hover'>Sign In</h2></Link>
             </Button>
         </ButtonGroup>
+        <div className='lawyer-sign-up-flex-v2'>
+        <div className="name-inputs">
             <Form.Group className="mb-3" controlId="formBasicFirstName">
-                <Form.Label className="labels">First Name</Form.Label>
-                <Form.Control name ="firstName" type="text" placeholder="Enter your first name" className='lawyer-input'/>
+                <Form.Label className="labels input-deets">First Name</Form.Label>
+                <Form.Control name ="firstName" type="text" placeholder="Enter first name" className='lawyer-input input-width'/>
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicLastName">
-                <Form.Label className="labels">Last Name</Form.Label>
-                <Form.Control name ="lastName" type="text" placeholder="Enter your last name" className='lawyer-input'/>
+                <Form.Label className="labels input-deets">Last Name</Form.Label>
+                <Form.Control name ="lastName" type="text" placeholder="Enter last name" className='lawyer-input input-width'/>
             </Form.Group>
+            </div>
+            <div className="name-inputs">
             <Form.Group className="mb-3" controlId="formBasicFirm">
-                <Form.Label className="labels">Firm</Form.Label>
-                <Form.Control name ="firm" type="text" placeholder="Enter the firm you work at currently" className='lawyer-input'/>
+                <Form.Label className="labels input-deets">Firm</Form.Label>
+                <Form.Control name ="firm" type="text" placeholder="Enter your firm" className='lawyer-input input-width'/>
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicBio">
-                <Form.Label className="labels">Biography</Form.Label>
-                <Form.Control name ="bio" type="text" placeholder="Tell us a little about yourself" className='lawyer-input'/>
+                <Form.Label className="labels input-deets">Biography</Form.Label>
+                <Form.Control name ="bio" type="text" placeholder="Tell us about yourself" className='lawyer-input input-width'/>
             </Form.Group>
+            </div>
+            <div className="name-inputs">
             <Form.Group className="mb-3" controlId="formBasicFile">
-                <Form.Label className="labels">Profile Picture</Form.Label>
-                <Form.Control name ="pfp" type="text" placeholder='Please submit a URL' className='lawyer-input'/>
+                <Form.Label className="labels input-deets">Profile Pic</Form.Label>
+                <Form.Control name ="pfp" type="text" placeholder='URL' className='lawyer-input input-width'/>
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label className="labels">Email address</Form.Label>
-                <Form.Control name ="email" type="email" placeholder="Enter email" className='lawyer-input'/>
+                <Form.Label className="labels input-deets">Email</Form.Label>
+                <Form.Control name ="email" type="email" placeholder="Enter email" className='lawyer-input input-width'/>
             </Form.Group>
+            </div>
+            <div className="name-inputs">
             <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label className="labels">Password</Form.Label>
-                <Form.Control name ="passwrd" type="password" placeholder="Password" className='lawyer-input'/>
+                <Form.Label className="labels input-deets">Password</Form.Label>
+                <Form.Control name ="passwrd" type="password" placeholder="Password" className='lawyer-input input-width'/>
             </Form.Group>
-            <Button color="dark" type="submit" className='lawyer-input'>
+            </div >
+            <Button color="light" type="submit" className='submit-btn v2'>
                 Submit
             </Button>
+            </div>
         </Form>
         {/* <span>Already have an account? Click <Link to="/login">here</Link> to sign in </span> */}
         {/* This is a temp link */}

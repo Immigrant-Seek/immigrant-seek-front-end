@@ -100,7 +100,7 @@ function LawyerProfile(){
 
   <path fillRule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
 </svg></button>
-        <div className="lawyer-card mb-3">
+        <div className="lawyer-card">
             <div className="row g-0">
             <div className="col-md-4 lawyer-img-card">
             <img src={lawyer.profile_pic_link} className="img-fluid rounded image" alt="ohno"/>
@@ -109,8 +109,8 @@ function LawyerProfile(){
                 <p className='info-color'><strong>Email:</strong><p className='lawyer-email'>{lawyer.email}</p></p>
                 {context.isLoggedIn &&<div className="button-group padding">
             {/* MAKE CALENDLY LINK FOR OTHER LAWYERS */}
-            <Button color="dark" type="button"><a href="https://calendly.com/dominic-cullen">Schedule an appointment</a></Button>
-            <Button color="dark" onClick={() => setModalShow(true)}>
+            <Button color="dark" type="button" className="schedule-btn"><a href="https://calendly.com/dominic-cullen">Schedule an appointment</a></Button>
+            <Button color="dark" className="schedule-btn" onClick={() => setModalShow(true)}>
                 Send A Message
             </Button>
             <VerticallyCenteredModal show={modalShow} onHide={() => setModalShow(false)} />
@@ -129,7 +129,7 @@ function LawyerProfile(){
 
             {currentReviews.map((review) => {
                 return (
-                    <>
+                    <div className='review-bottom-divider'>
                         <>
                         <div className='review-plus-user-svg'>
                         <>
@@ -144,10 +144,10 @@ function LawyerProfile(){
                         </>
                         {context.isLoggedIn && (context.verifiedUser.userInfo.user_id == review.client_id) &&
                         <>
-                        <button onClick={handleDelete} key={review.review_id} id={review.review_id}>Delete</button>
+                        <Button className="delete-btn" onClick={handleDelete} key={review.review_id} id={review.review_id}>Delete</Button>
                         </>
                         }
-                    </>
+                    </div>
                 )
             })}
         </div>

@@ -54,24 +54,32 @@ function Login(){
 
     return (
         <div className='form-centered'>
+            {/* <div className="dreams-bridge-logo-container">
+                <img src='' alt="dreams bridge" className='dreams-bridge-logo'/>
+            </div> */}
         <Form onSubmit = {handleSubmit} className="user-form">
         <ButtonGroup className="form-btns-container">
             <Button className="form-btns login-v1">
-            <Link to="/login"><h2>Sign In</h2></Link>
+            <Link to="/login"><h2 className='h2-hover'>Sign In</h2></Link>
             </Button>
-            <Button className="form-btns">
-                <Link to="/signup"><h2>Sign Up</h2></Link>
+            <Button className="form-btns signup-v2">
+                <Link to="/signup"><h2 className='h2-hover'>Sign Up</h2></Link>
             </Button>
         </ButtonGroup>
-        
+            <div className="margin-auto">
+                <>
             <Form.Group className="mb-3 login-input" controlId="formBasicEmail">
                 <Form.Label className="input-deets">Email</Form.Label>
-                <Form.Control name ="email" type="email" placeholder="Enter email" />
+                <Form.Control name ="email" type="email" placeholder="Enter email" className='lawyer-input input-width'/>
             </Form.Group>
+            </>
+            <>
             <Form.Group className="mb-3 login-input" controlId="formBasicPassword">
                 <Form.Label className="input-deets">Password</Form.Label>
-                <Form.Control name ="passwrd"  type="password" placeholder="Password" />
+                <Form.Control name ="passwrd"  type="password" placeholder="Password" className='lawyer-input input-width'/>
             </Form.Group>
+            </>
+            </div>
             <Button variant="primary" type="submit" className='submit-btn'>
                 Submit
             </Button>
