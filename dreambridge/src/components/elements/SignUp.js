@@ -1,8 +1,10 @@
-import { Button, Form } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Context from '../../context/Context';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { ButtonGroup } from 'react-bootstrap';
+import Button from './Button';
 
 function SignUp(){
     // state to keep track of the user that signs up, initailzied to object with values of empty strings
@@ -50,12 +52,15 @@ function SignUp(){
 
     return (
         <div className='form-centered'>
-            <button className='back-btn-signup' onClick={() => navigate('/')}><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" className="bi bi-arrow-left" viewBox="0 0 16 16">
-  <path fillRule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
-</svg></button>
-            <div className='signup-form'>
-        <h2>Sign up using the form below!</h2>
-        <Form onSubmit = {handleSubmit} >
+        <Form onSubmit = {handleSubmit} className="user-form">
+        <ButtonGroup className="form-btns-container">
+            <Button className="form-btns">
+                <Link to="/login"><h2>Sign In</h2></Link>
+            </Button>
+            <Button className="form-btns signup-v1">
+                <Link to="/signup"><h2>Sign Up</h2></Link>
+            </Button>
+        </ButtonGroup>
             <Form.Group className="mb-3 login-input" controlId="formBasicFirstName">
                 <Form.Label className="input-deets">First Name</Form.Label>
                 <Form.Control name ="firstName" type="text" placeholder="Enter your first name" />
@@ -72,14 +77,13 @@ function SignUp(){
                 <Form.Label className="input-deets">Password</Form.Label>
                 <Form.Control name ="passwrd" type="password" placeholder="Password" />
             </Form.Group>
-            <Button variant="primary" type="submit" className='login-input'>
+            <Button variant="primary" type="submit" className="submit-btn">
                 Submit
             </Button>
         </Form>
-        </div>
-        <span>Already have an account? Click <Link to="/login">here</Link> to sign in </span>
+        {/* <span>Already have an account? Click <Link to="/login">here</Link> to sign in </span> */}
         {/* This is a temp link */}
-        <Link to="/Connect-with-a-lawyer">Click to go to main page</Link>
+        {/* <Link to="/Connect-with-a-lawyer">Click to go to main page</Link> */}
     </div>
     )
 }

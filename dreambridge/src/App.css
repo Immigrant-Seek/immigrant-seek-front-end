@@ -4,6 +4,7 @@
 
 body {
   background-color: white!important;
+  color: black!important;
 }
 
 .card {
@@ -36,11 +37,10 @@ body {
 
 .lawyer-home-card {
   display: flex;
-  border: #151719 solid 1px!important;
 }
 
 .lawyer-home-card:hover{
-  box-shadow: 20px 20px 50px 10px grey;
+  box-shadow: 10px 10px 10px grey;
 }
 
 .lawyer-home-card .content {
@@ -51,7 +51,8 @@ body {
 
 .lawyer-home-card h4 {
   color: #151719;
-  margin-bottom: 1%;
+  margin-bottom: 0%;
+  font-size: 150%;
 }
 
 .lawyer-home-card-schedule-btn {
@@ -64,14 +65,21 @@ body {
 
 ul, li {
   list-style: none!important;
+  font-style: italic;
+  margin-bottom: 5%;
+  color: dimgray;
 }
 
 ul {
-  background-color: cornflowerblue;
   border-radius: 20%;
+  margin: 0%!important;
   color: black;
   max-width: fit-content;
-  padding: 1% !important;
+  padding-inline-start: 0px!important;
+}
+
+.content p {
+  color:#151719
 }
 
 .image {
@@ -79,6 +87,7 @@ ul {
   width: 250px;
   margin: 0%;
   display: inline;
+  border-radius: 2%;
 }
 
 .img-fluid {
@@ -92,12 +101,14 @@ ul {
 
 .lawyer-back-btn {
   position: absolute;
-  margin-left: 3%;
-  margin-top: 3%;
+  margin-left: 4%;
+  margin-top: 4%;
+  background-color: transparent;
+  border: none
 }
 
 .lawyer-back-btn:hover {
-  background-color: cornflowerblue;
+  cursor: pointer;
 }
 
 .row {
@@ -190,8 +201,18 @@ ul {
   background-color:#25282C;
 }
 
+.nav-btn {
+  background-color: transparent!important;
+  font-size: 22px!important;
+}
+
+.hover-link:hover {
+  color: lightseagreen!important;
+}
+
 .hover-link {
-  color: #151719!important;
+  color: white!important;
+  
 }
 
 .company-name {
@@ -200,8 +221,7 @@ ul {
 
 .form-centered {
   text-align: center;
-  background-color:#151719;
-  color: white;
+  background-image: url("https://images.axios.com/QgAD-GAfg3s48I-kzgXCGD3Jiho=/0x0:1920x1080/1920x1080/2019/11/07/1573153800859.jpg");
   position:absolute;
   top:0px;
   right:0px;
@@ -210,7 +230,28 @@ ul {
 }
 
 .form-centered h2 {
-  color: white!important
+  color: black!important;
+  margin: 0%;
+}
+
+.mb-3 {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: auto;
+  padding: 2%;
+}
+
+.form-label {
+  color: black!important;
+  font-size: 20px!important;
+  text-align: start;
+}
+
+.user-form {
+  width: 50%;
+  margin-top:1%;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }
 
 .signup-form {
@@ -218,18 +259,27 @@ ul {
   margin: auto;
 }
 
-
-.login-input {
-  margin: 3%;
-}
-
 .lawyer-input {
   margin: 1%;
+}
+
+.form-btns-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.form-btns {
+  background-color: transparent!important;
+  margin-bottom: 3%;
 }
 
 .input-deets {
   padding: 1.5%;
   font-weight: bold!important;
+}
+
+.submit-btn {
+  margin-bottom: 10%
 }
 
 .db-social {
@@ -439,4 +489,15 @@ h1, h3{
 .review-bottom-divider {
   border-bottom: #151719 solid 2px;
   padding: 2%;
+}
+
+.login-v1 h2{
+  color: white!important;
+  text-decoration: underline;
+}
+
+
+.signup-v1 h2 {
+  color: white!important;
+  text-decoration: underline;
 }
