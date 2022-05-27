@@ -3,6 +3,8 @@ import Chat from './Chat';
 import '../../Inbox.css';
 import Nav from './Nav';
 import React from 'react';
+import LawyerNav from './NavForLawyers';
+
 // use a modal from react strap to get popup for send a message button
 function Inbox() {
     const [selectedConvoId,updateSelectedConvo] = React.useState(null);
@@ -12,7 +14,7 @@ function Inbox() {
     })
     return (
         <>
-        <Nav />
+        <LawyerNav />
         <div className = "Inbox">
             <div className = 'InboxBody'>
                 <Sidebar selectedConvoId = {selectedConvoId} updateSelectedConvo = {updateSelectedConvo} messagesSentCount = {messagesSentCount}/>
