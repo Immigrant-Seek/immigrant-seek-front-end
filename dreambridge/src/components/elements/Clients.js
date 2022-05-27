@@ -1,5 +1,5 @@
 import React from 'react';
-import NavigationBar from './Nav';
+import LawyerNav from './NavForLawyers';
 import Context from '../../context/Context';
 import ClientsPage from './ClientsPage';
 function Clients (){
@@ -15,7 +15,7 @@ function Clients (){
     }, [])
     return (
         <div className='App'>
-          <NavigationBar/>
+          <LawyerNav/>
           <ClientsPage listOfClients={listOfClients}/>
         </div>
       );
