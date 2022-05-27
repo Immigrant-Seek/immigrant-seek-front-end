@@ -26,7 +26,6 @@ body {
 }
 
 .cards {
-  /* display: flex; */
   flex-wrap: wrap;
   justify-content: center;
 }
@@ -80,6 +79,13 @@ ul {
 
 .content p {
   color:#151719
+}
+
+.client-content h5{
+  color: black;
+  text-decoration: underline;
+  margin-bottom: 0%;
+  font-size: x-large;
 }
 
 .image {
