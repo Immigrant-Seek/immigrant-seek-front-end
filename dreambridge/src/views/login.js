@@ -1,8 +1,9 @@
-import { Button, Form } from 'react-bootstrap';
+import { Form } from 'react-bootstrap';
 import { Link , useNavigate} from 'react-router-dom';
 import Context from '../context/Context';
 import React from 'react';
-
+import Button from '../components/elements/Button';
+import { ButtonGroup } from 'react-bootstrap';
 
 // This is where you render the Login Form component you created
 
@@ -53,11 +54,16 @@ function Login(){
 
     return (
         <div className='form-centered'>
-             <button className='back-btn-signup' onClick={() => navigate('/')}><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" className="bi bi-arrow-left" viewBox="0 0 16 16">
-  <path fillRule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
-</svg></button>
-        <h2>Sign In</h2>
-        <Form onSubmit = {handleSubmit}>
+        <Form onSubmit = {handleSubmit} className="user-form">
+        <ButtonGroup className="form-btns-container">
+            <Button className="form-btns login-v1">
+            <Link to="/login"><h2>Sign In</h2></Link>
+            </Button>
+            <Button className="form-btns">
+                <Link to="/signup"><h2>Sign Up</h2></Link>
+            </Button>
+        </ButtonGroup>
+        
             <Form.Group className="mb-3 login-input" controlId="formBasicEmail">
                 <Form.Label className="input-deets">Email</Form.Label>
                 <Form.Control name ="email" type="email" placeholder="Enter email" />
@@ -66,13 +72,13 @@ function Login(){
                 <Form.Label className="input-deets">Password</Form.Label>
                 <Form.Control name ="passwrd"  type="password" placeholder="Password" />
             </Form.Group>
-            <Button variant="primary" type="submit" className='login-input'>
+            <Button variant="primary" type="submit" className='submit-btn'>
                 Submit
             </Button>
         </Form>
-        <span>Don't have an account yet? Click <Link to="/signup">here</Link> to sign up </span>
+        {/* <span>Don't have an account yet? Click <Link to="/signup">here</Link> to sign up </span>
         {/* This is a temp link */}
-        <Link to="/Connect-with-a-lawyer">Click to go to main page</Link>
+        {/* <Link to="/Connect-with-a-lawyer">Click to go to main page</Link> */}
     </div>
     )
 }

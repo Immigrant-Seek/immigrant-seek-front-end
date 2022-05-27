@@ -4,6 +4,7 @@ import Context from '../../context/Context';
 import { Container } from 'react-bootstrap';
 import Search from './Search';
 import initialDetails from './initialDetails';
+import MissionStatement from './MissionStatement';
 
 function LawyerList(){
     let context = useContext(Context);
@@ -11,6 +12,7 @@ function LawyerList(){
     return (
         <>
         {/* <Search details={initialDetails}/> */}
+        <MissionStatement/>
         <Container className='cards-container'>
         <div className='cards lawyer-home-cards'>
             {context.listOfLawyers.map((lawyer) => {
