@@ -19,3 +19,27 @@
     overflow-block: clip;
     /* border: none; */
 }
+
+.modal-content {
+    margin: auto;
+    width: 70%;
+    margin-top: 10%;
+    background-color:lightgrey;
+    border-radius: 1%;
+}
+
+.modal-content .modal-title {
+    color: black!important;
+}
+
+
+.btn-close {
+    display: none;
+}
+
+.close-modal-btn {
+    position: absolute;
+    margin-left: 64.1%;
+    margin-top: -3.5%;
+    border-radius: 2%!important;
+}
