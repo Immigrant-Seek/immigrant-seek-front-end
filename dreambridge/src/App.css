@@ -15,7 +15,7 @@ body {
 }
 
 .lawyer-card {
-  margin: 5%;
+  margin: 3%;
   cursor: pointer;
   border: none!important;
   background-color:white;
@@ -36,10 +36,10 @@ body {
 
 .lawyer-home-card {
   display: flex;
+  border: #151719 solid 1px!important;
 }
 
 .lawyer-home-card:hover{
-  border: #151719 solid 1px!important;
   box-shadow: 20px 20px 50px 10px grey;
 }
 
@@ -86,9 +86,19 @@ ul {
 }
 
 .lawyer-container {
-  margin-top: 5% !important;
+  margin-top: 0% !important;
   padding: 0%;
 } 
+
+.lawyer-back-btn {
+  position: absolute;
+  margin-left: 3%;
+  margin-top: 3%;
+}
+
+.lawyer-back-btn:hover {
+  background-color: cornflowerblue;
+}
 
 .row {
   display: flex;
@@ -169,6 +179,7 @@ ul {
 
 .review-card {
   padding: 2%;
+  margin: 0%;
 }
 
 .review-plus-user-svg {
@@ -210,6 +221,10 @@ ul {
 
 .login-input {
   margin: 3%;
+}
+
+.lawyer-input {
+  margin: 1%;
 }
 
 .input-deets {
@@ -265,10 +280,12 @@ h1, h3{
 
 .nav-items {
   margin-right: 3%;
+  margin-top: 1%;
 }
 
 .dreamsbridge {
   margin-left: 3%;
+  margin-top: 1%;
   color: white !important;
 }
 
@@ -338,6 +355,14 @@ h1, h3{
   height: 300px;
 }
 
+.illustration-section-02 {
+  display: flex;
+}
+
+.illustration-section-02::after{
+  background-image: none!important;
+}
+
 .mission-statement-container {
   width: 70%;
   padding: 5%;
@@ -345,20 +370,18 @@ h1, h3{
   margin-top: 5%;
   margin-bottom: 5%;
   text-align: center;
-  background-color: #25282C;
-  box-shadow: 20px 20px 50px 10px grey;
   border-radius: 1%;
 }
 
 .mission-statement-container h2 {
-  color: white!important;
+  color: black!important;
 }
 
 .spacing {
   line-height: 180%;
   letter-spacing: 1px;
   word-spacing:2px;
-  color: white!important;
+  color: black!important;
 }
 
 .mission-statement h1 {
@@ -389,3 +412,31 @@ h1, h3{
   padding-bottom: 0;
 }
 
+.client-pfp {
+  height: 80%;
+  width: 80%;
+}
+
+.image-default .MuiAvatar-root {
+  width: 100%!important;
+  height: 100%!important;
+}
+
+.back-btn-signup:hover {
+  background-color: cornflowerblue;
+}
+
+.back-btn-signup {
+  position: absolute;
+  margin-top: 4%;
+  margin-left: -25%;
+}
+
+.review-input {
+  margin-top: 3%;
+}
+
+.review-bottom-divider {
+  border-bottom: #151719 solid 2px;
+  padding: 2%;
+}
