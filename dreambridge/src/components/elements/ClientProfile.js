@@ -114,6 +114,7 @@ function ClientProfile(){
         <button type="button"><Link to = "/">Log Out</Link></button>
         </div>
       </div>
+      </div>
     )
 }
 

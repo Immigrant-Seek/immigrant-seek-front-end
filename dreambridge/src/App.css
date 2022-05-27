@@ -15,11 +15,10 @@ body {
 }
 
 .lawyer-card {
-  margin: 3%;
+  margin: 2%;
   cursor: pointer;
   border: none!important;
   background-color:white;
-  box-shadow: 20px 20px 50px grey;
   padding: 3%;
   border-radius: 2%;
 }
@@ -75,8 +74,8 @@ ul {
 }
 
 .image {
-  height: 250px;
-  width: 250px;
+  height: 350px;
+  width: 350px;
   margin: 0%;
   display: inline;
 }
@@ -94,15 +93,17 @@ ul {
   position: absolute;
   margin-left: 3%;
   margin-top: 3%;
+  border: none!important;
+  background-color: transparent!important;
 }
 
-.lawyer-back-btn:hover {
-  background-color: cornflowerblue;
+.lawyer-back-btn:hover{
+  cursor: pointer;
 }
 
 .row {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .button-group {
@@ -129,10 +130,10 @@ ul {
   font-weight:bold;
 }
 
-.calendly {
+/* .calendly {
   color: black!important;
   text-decoration-line: none;
-}
+} */
 
 @media only screen and (max-width: 450px) {
   .row-search-and-filter {
@@ -155,7 +156,7 @@ ul {
 
 .bio-section-lawyer {
   width: 850px;
-  padding: 3%;
+  padding-top: 0%;
   background-color: white;;
   border-radius: 2%;
 }
@@ -187,7 +188,7 @@ ul {
 }
 
 .navi {
-  background-color:#25282C;
+  background-color:#151719;
 }
 
 .hover-link {
@@ -207,6 +208,10 @@ ul {
   right:0px;
   bottom:0px;
   left:0px;
+}
+
+.padding h3 {
+  margin-top: 0%;
 }
 
 .form-centered h2 {
@@ -439,4 +444,16 @@ h1, h3{
 .review-bottom-divider {
   border-bottom: #151719 solid 2px;
   padding: 2%;
+}
+
+.lawyer-banner{
+  background-image:linear-gradient(to bottom, #f5eff7, white);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.banner-img {
+  height: 683px;
+  width: 100%;
+  margin: auto;
 }

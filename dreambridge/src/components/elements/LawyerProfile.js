@@ -3,7 +3,9 @@ import React, { useState, useEffect, useContext } from 'react';
 import Context from '../../context/Context';
 import NavigationBar from '../../components/elements/Nav'
 import VerticallyCenteredModal from '././VerticallyCenteredModal';
-import { Container, Form, Button} from 'react-bootstrap';
+import { Container, Form} from 'react-bootstrap';
+import Button from './Button'
+import wallsBanner from '../../assets/images/wallsBanner.png'
 
 function LawyerProfile(){
     const [modalShow, setModalShow] = useState(false);
@@ -90,8 +92,11 @@ function LawyerProfile(){
     return (
         <>
         <NavigationBar/>
+        <div className="lawyer-banner">
+            <img src={wallsBanner} className="banner-img"/>
+        </div>
         <Container className="lawyer-container">
-        <button className="lawyer-back-btn" onClick={() => navigate('/Connect-with-a-Lawyer')}><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" className="bi bi-arrow-left" viewBox="0 0 16 16">
+        <button className="lawyer-back-btn" onClick={() => navigate('/Connect-with-a-Lawyer')}><svg xmlns="http://www.w3.org/2000/svg" width="46" height="46" fill="currentColor" className="bi bi-arrow-left" viewBox="0 0 16 16">
   <path fillRule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
 </svg></button>
         <div className="lawyer-card mb-3">
@@ -101,11 +106,19 @@ function LawyerProfile(){
             <h3 className='info-color lawyer-name'>{lawyer.first_name} {lawyer.last_name}</h3>
                 <p className='info-color'><strong>Firm:</strong><p className='lawyer-firm'>{lawyer.firm}</p></p>
                 <p className='info-color'><strong>Email:</strong><p className='lawyer-email'>{lawyer.email}</p></p>
+                {context.isLoggedIn &&<div className="button-group padding">
+            {/* MAKE CALENDLY LINK FOR OTHER LAWYERS */}
+            <Button color="dark" type="button"><a href="https://calendly.com/dominic-cullen">Schedule an appointment</a></Button>
+            <Button color="dark" onClick={() => setModalShow(true)}>
+                Send A Message
+            </Button>
+            <VerticallyCenteredModal show={modalShow} onHide={() => setModalShow(false)} />
+        </div>}
             </div>
     <div className="col-md-8 bio-section-lawyer">
       <div className="card-body padding">
-        <h3 className="card-title">Biography:</h3>
-        <p className="card-text">James G. Martin was born and raised in Iowa. At a young age, he knew that he wanted to see the world. So at age seventeen he traveled to Israel as a summer foreign exchange student. This first international experience changed the course of James’s life.
+        <h3 className="card-title review-bottom-divider">Biography:</h3>
+        <p className="card-text review-bottom-divider">James G. Martin was born and raised in Iowa. At a young age, he knew that he wanted to see the world. So at age seventeen he traveled to Israel as a summer foreign exchange student. This first international experience changed the course of James’s life.
 
 During his junior year in college, James studied abroad in France where he eventually obtained his first immigration case—he met and later married his wife, Marie, who was a French citizen at the time and who immigrated to the United States.
 
@@ -123,14 +136,7 @@ From 2005 until 2007, Mr. Martin worked for a small immigration law firm in Sara
 
 James’s love of other cultures has enabled him to learn a great deal from his clients. It has also fostered a love of languages and James is fluent in Spanish and French.</p>
         
-        {context.isLoggedIn &&<div className="button-group padding">
-            {/* MAKE CALENDLY LINK FOR OTHER LAWYERS */}
-            <button type="button"><a href="https://calendly.com/dominic-cullen" className='calendly'>Schedule an appointment</a></button>
-            <Button variant="primary" onClick={() => setModalShow(true)}>
-                Send A Message
-            </Button>
-            <VerticallyCenteredModal show={modalShow} onHide={() => setModalShow(false)} />
-        </div>}
+        
         {currentReviews.length === 0 ? <h3>There are no reviews, add yours!</h3> :
         <h3 className='padding'>Reviews:</h3>}
         <div>
@@ -172,6 +178,7 @@ James’s love of other cultures has enabled him to learn a great deal from his 
       </div>
     </div>
   </div>
+</div>
 </div>
         </Container>
         </>
