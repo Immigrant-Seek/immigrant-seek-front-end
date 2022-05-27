@@ -16,11 +16,10 @@ body {
 }
 
 .lawyer-card {
-  margin: 3%;
+  margin: 2%;
   cursor: pointer;
   border: none!important;
   background-color:white;
-  box-shadow: 20px 20px 50px grey;
   padding: 3%;
   border-radius: 2%;
 }
@@ -89,8 +88,8 @@ ul {
 }
 
 .image {
-  height: 250px;
-  width: 250px;
+  height: 350px;
+  width: 350px;
   margin: 0%;
   display: inline;
   border-radius: 2%;
@@ -107,10 +106,10 @@ ul {
 
 .lawyer-back-btn {
   position: absolute;
-  margin-left: 4%;
-  margin-top: 4%;
-  background-color: transparent;
-  border: none
+  margin-left: 3%;
+  margin-top: 3%;
+  border: none!important;
+  background-color: transparent!important;
 }
 
 .lawyer-back-btn:hover {
@@ -119,7 +118,7 @@ ul {
 
 .row {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .button-group {
@@ -146,10 +145,10 @@ ul {
   font-weight:bold;
 }
 
-.calendly {
+/* .calendly {
   color: black!important;
   text-decoration-line: none;
-}
+} */
 
 @media only screen and (max-width: 450px) {
   .row-search-and-filter {
@@ -172,7 +171,7 @@ ul {
 
 .bio-section-lawyer {
   width: 850px;
-  padding: 3%;
+  padding-top: 0%;
   background-color: white;;
   border-radius: 2%;
 }
@@ -197,14 +196,20 @@ ul {
 .review-card {
   padding: 2%;
   margin: 0%;
+  color:#151719;
 }
+
+.text-muted {
+  color:#25282C;
+}
+
 
 .review-plus-user-svg {
   display: flex;
 }
 
 .navi {
-  background-color:#25282C;
+  background-color:#151719;
 }
 
 .nav-btn {
@@ -233,6 +238,10 @@ ul {
   right:0px;
   bottom:0px;
   left:0px;
+}
+
+.padding h3 {
+  margin-top: 0%;
 }
 
 .form-centered h2 {
@@ -497,11 +506,15 @@ h1, h3{
   padding: 2%;
 }
 
+.banner-img {
+  height: 683px;
+  width: 100%;
+  margin: auto;
+
 .login-v1 h2{
   color: white!important;
   text-decoration: underline;
 }
-
 
 .signup-v1 h2 {
   color: white!important;
