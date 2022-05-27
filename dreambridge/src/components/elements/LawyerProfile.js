@@ -137,10 +137,9 @@ From 2005 until 2007, Mr. Martin worked for a small immigration law firm in Sara
 James’s love of other cultures has enabled him to learn a great deal from his clients. It has also fostered a love of languages and James is fluent in Spanish and French.</p>
         
         
-        {currentReviews.length === 0 ? <h3>There are no reviews, add yours!</h3> :
+        {currentReviews.length === 0 ? <><h3 className='padding'>Reviews:</h3><h3>There are no reviews, add yours!</h3></> :
         <h3 className='padding'>Reviews:</h3>}
         <div>
-        <h3 className='padding'>Reviews:</h3>
         <div className='review-bottom-divider'>
 
             {currentReviews.map((review) => {
