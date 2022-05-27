@@ -119,23 +119,7 @@ function LawyerProfile(){
     <div className="col-md-8 bio-section-lawyer">
       <div className="card-body padding">
         <h3 className="card-title review-bottom-divider">Biography:</h3>
-        <p className="card-text review-bottom-divider">James G. Martin was born and raised in Iowa. At a young age, he knew that he wanted to see the world. So at age seventeen he traveled to Israel as a summer foreign exchange student. This first international experience changed the course of James’s life.
-
-            During his junior year in college, James studied abroad in France where he eventually obtained his first immigration case—he met and later married his wife, Marie, who was a French citizen at the time and who immigrated to the United States.
-
-            Mr. Martin earned a B.A. in Political Science with a minor in French from the University of Iowa in 1986. As previously mentioned, during the course of his undergraduate studies, he spent one year studying at the Universite de Franche-Comte in Besancon, France.
-
-            Upon graduation from college, James moved to the New York City area and landed his first job as a paralegal for Barst and Mukamal, which at the time was known to be the oldest and largest immigration law firm. While working at Barst and Mukamal, he studied law in the evening and earned his Juris Doctorate degree from Seton Hall University in 1994. He is admitted to the bars of the states of New York and New Jersey.
-
-            Upon completion of his law degree and admission to the bar, James worked for Passaic County Legal Aid Society for three years in Paterson, New Jersey. This was literally a life-changing experience because it provided him with a unique perspective on poverty in America.
-
-            After leaving the Legal Aid Society, James worked for a number of immigration law firms in the New York City area including the Law Office of Susie Kim, Fragomen Del Rey Bernsen and Loewy, the law office of Levitt and Needleman as well Troutman Sanders, LLP. While working in New York, James had the opportunity to appear in the Immigration Courts as well as Federal Court to advocate for the interests of his clients. He also worked extensively on employment-based non-immigrant and immigrant visa cases.
-
-            In 2004, Mr. Martin left New York and worked for the Office of the Federal Public Defender as an Assistant Federal Public Defender in Del Rio, Texas where he appeared in Federal Court on a daily basis to defend undocumented immigrants crossing the U.S.-Mexico border.
-
-            From 2005 until 2007, Mr. Martin worked for a small immigration law firm in Sarasota, Florida and between October of 2009 and May of 2012, James was a partner in another Sarasota immigration law firm.
-
-            James’s love of other cultures has enabled him to learn a great deal from his clients. It has also fostered a love of languages and James is fluent in Spanish and French.</p>
+        <p className="card-text review-bottom-divider">{lawyer.bio}</p>
         
         
         {currentReviews.length === 0 ? <><h3 className='padding'>Reviews:</h3><h3>There are no reviews, add yours!</h3></> :
