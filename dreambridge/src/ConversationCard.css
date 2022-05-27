@@ -2,11 +2,11 @@
     display: flex !important;
     padding: 20px !important;
     cursor: pointer !important;
-    border-bottom: 1px solid #f6f6f6 !important;
+    border-bottom: 1px solid #d1c9c9 !important;
 }
 
 .conversationCard:hover {
-    background-color: #ebebeb !important;
+    background-color: #e4e3e3 !important;
 }
 
 .conversationCardInfo>h2 {

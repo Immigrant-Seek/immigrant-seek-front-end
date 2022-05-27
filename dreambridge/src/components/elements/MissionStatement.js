@@ -4,7 +4,7 @@ function MissionStatement(){
   <div className="card-header">
   </div>
   <div className="card-body">
-    <h3 className="card-title">Find Your Lawyer</h3>
+    <h2 className="card-title">Find Your Lawyer</h2>
   </div>
   <div className="card-footer text-muted">
   </div>

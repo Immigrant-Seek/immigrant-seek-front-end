@@ -10,7 +10,7 @@ function LawyerList(){
     let context = useContext(Context);
     console.log(context);
     return (
-        <>
+        <div className='img-background'>
         {/* <Search details={initialDetails}/> */}
         <MissionStatement/>
         <Container className='cards-container'>
@@ -20,7 +20,7 @@ function LawyerList(){
             })}
         </div>
         </Container>
-        </>
+        </div>
     )
 }
 
